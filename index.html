@@ -9,21 +9,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0a0a0a;
-      --surface: #111111;
-      --border: #1e1e1e;
-      --accent: #e8ff47;
-      --accent2: #47c9ff;
-      --text: #f0f0f0;
-      --muted: #666;
-      --card: #141414;
+      --bg: #050505;
+      --surface: #0d0d0d;
+      --border: #1f1f1f;
+      --accent: #d9ff3f;
+      --accent2: #3fd0ff;
+      --text: #ffffff;
+      --muted: #fefefe;
+      --card: #121212;
+      --card-glow: rgba(217,255,63,0.08);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
+      background: radial-gradient(circle at 20% 30%, #0f0f0f, #050505 60%);
       color: var(--text);
       font-family: 'DM Mono', monospace;
       font-size: 14px;
@@ -160,14 +161,22 @@
     .hero-right { display: flex; flex-direction: column; gap: 16px; }
 
     .stat-card {
-      background: var(--card);
+      background: linear-gradient(145deg, #121212, #0c0c0c);
       border: 1px solid var(--border);
       padding: 24px 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-radius: 4px;
+      border-radius: 6px;
+      box-shadow: 0 0 0 transparent;
+      transition: all 0.25s ease;
       animation: slideIn 0.6s ease both;
+    }
+
+    .stat-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 25px var(--card-glow);
+      transform: translateY(-3px);
     }
     .stat-card:nth-child(1) { animation-delay: 0.1s; }
     .stat-card:nth-child(2) { animation-delay: 0.2s; }
@@ -283,11 +292,17 @@
     .exp-projects { margin-top: 20px; display: flex; flex-direction: column; gap: 20px; }
 
     .proj-block {
-      background: var(--card);
+      background: linear-gradient(145deg, #141414, #0f0f0f);
       border: 1px solid var(--border);
       border-left: 2px solid var(--accent);
       padding: 20px 24px;
-      border-radius: 0 4px 4px 0;
+      border-radius: 0 6px 6px 0;
+      transition: all 0.25s ease;
+    }
+
+    .proj-block:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 20px var(--card-glow);
     }
 
     .proj-title {
@@ -321,7 +336,13 @@
       font-size: 11px;
     }
 
-    .highlight { color: var(--text); font-weight: 500; }
+    .highlight {
+      color: #ffffff;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1.5px;
+    }
 
     .skills-grid {
       display: grid;
@@ -330,11 +351,16 @@
     }
 
     .skill-cat {
-      background: var(--card);
+      background: linear-gradient(145deg, #141414, #0f0f0f);
       border: 1px solid var(--border);
       padding: 28px;
-      border-radius: 4px;
-      transition: border-color 0.2s;
+      border-radius: 6px;
+      transition: all 0.25s ease;
+    }
+
+    .skill-cat:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 18px var(--card-glow);
     }
     .skill-cat:hover { border-color: rgba(232,255,71,0.3); }
 
@@ -352,25 +378,36 @@
 
     .tag {
       font-size: 11px;
-      padding: 5px 12px;
+      padding: 6px 12px;
       border: 1px solid var(--border);
       color: var(--muted);
-      border-radius: 2px;
-      transition: all 0.2s;
+      border-radius: 4px;
+      background: #0d0d0d;
+      transition: all 0.2s ease;
+    }
+    .tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(217,255,63,0.05);
     }
     .tag:hover { border-color: var(--text); color: var(--text); }
 
     .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
     .edu-card {
-      background: var(--card);
+      background: linear-gradient(145deg, #141414, #0f0f0f);
       border: 1px solid var(--border);
       padding: 32px;
-      border-radius: 4px;
+      border-radius: 6px;
       display: flex;
       flex-direction: column;
       gap: 8px;
-      transition: border-color 0.2s;
+      transition: all 0.25s ease;
+    }
+
+    .edu-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 18px var(--card-glow);
     }
     .edu-card:hover { border-color: rgba(232,255,71,0.3); }
 
@@ -456,7 +493,33 @@
     }
 
     @media (max-width: 768px) {
-      nav { padding: 16px 24px; }
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      #hero { grid-template-columns: 1fr; padding: 100px 20px 60px; gap: 32px; }
+      section { padding: 56px 20px; }
+      .edu-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 8px; text-align: center; }
+      .exp-period { margin-left: 0; width: 100%; }
+
+      /* FIX: Hero name overflow */
+      h1 {
+        font-size: 42px;
+        letter-spacing: -1px;
+        line-height: 1.05;
+        word-break: break-word;
+      }
+
+      h1 .line2 {
+        display: block;
+        font-size: 38px;
+        -webkit-text-stroke: 1px rgba(240,240,240,0.25);
+      }
+
+      .hero-sub {
+        font-size: 13px;
+        max-width: 100%;
+      }
+    }
       .nav-links { display: none; }
       #hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 40px; }
       section { padding: 64px 24px; }
@@ -807,7 +870,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
       LinkedIn
     </a>
-    <a href="https://github.com/" target="_blank" class="contact-link">
+    <a href="https://github.com/satishvishwakarma24" target="_blank" class="contact-link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
       GitHub
     </a>
