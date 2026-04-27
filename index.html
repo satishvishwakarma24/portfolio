@@ -1,241 +1,837 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Satish Vishwakarma | Portfolio</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Satish Vishwakarma — Flutter Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --border: #1e1e1e;
+      --accent: #e8ff47;
+      --accent2: #47c9ff;
+      --text: #f0f0f0;
+      --muted: #666;
+      --card: #141414;
     }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      background: #0a0a0a;
-      color: #fff;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
-    header {
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.4;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
       display: flex;
-      justify-content: space-between;
-      padding: 20px 60px;
-      border-bottom: 1px solid #222;
-    }
-
-    header h2 {
-      color: #c6ff00;
-      font-family: 'Orbitron';
-    }
-
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #aaa;
-    }
-
-    .hero {
-      padding: 80px 60px;
-      display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      padding: 20px 48px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
     }
 
-    .hero-left h1 {
-      font-size: 60px;
-      font-family: 'Orbitron';
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.5px;
+      color: var(--accent);
+      text-decoration: none;
     }
 
-    .highlight {
-      color: #c6ff00;
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 120px 48px 80px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      gap: 64px;
     }
 
-    .hero-left p {
-      margin-top: 20px;
-      color: #bbb;
-      max-width: 500px;
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(232,255,71,0.3);
+      padding: 6px 14px;
+      border-radius: 2px;
+      margin-bottom: 36px;
     }
+    .hero-tag::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: blink 1.4s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(48px, 6vw, 88px);
+      line-height: 0.95;
+      letter-spacing: -2px;
+      margin-bottom: 28px;
+    }
+
+    h1 .line2 {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(240,240,240,0.35);
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 460px;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+    .hero-sub span { color: var(--accent2); }
+
+    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
 
     .btn {
-      margin-top: 30px;
-      padding: 12px 20px;
-      background: #c6ff00;
-      color: black;
-      border: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.2s;
       cursor: pointer;
     }
+    .btn-primary {
+      background: var(--accent);
+      color: #0a0a0a;
+      font-weight: 500;
+    }
+    .btn-primary:hover { background: #f5ff7a; transform: translateY(-1px); }
+    .btn-ghost {
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .btn-ghost:hover { border-color: var(--text); color: var(--text); }
 
-    .card {
-      background: #111;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      border: 1px solid #222;
+    .hero-right { display: flex; flex-direction: column; gap: 16px; }
+
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 4px;
+      animation: slideIn 0.6s ease both;
+    }
+    .stat-card:nth-child(1) { animation-delay: 0.1s; }
+    .stat-card:nth-child(2) { animation-delay: 0.2s; }
+    .stat-card:nth-child(3) { animation-delay: 0.3s; }
+    .stat-card:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes slideIn {
+      from { opacity:0; transform: translateX(24px); }
+      to   { opacity:1; transform: translateX(0); }
     }
 
-    section {
-      padding: 60px;
+    .stat-val {
+      font-family: 'Syne', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .stat-icon { font-size: 24px; opacity: 0.4; }
+
+    section { padding: 96px 48px; border-bottom: 1px solid var(--border); }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+
+    .section-num {
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      font-weight: 500;
     }
 
     h2 {
-      margin-bottom: 20px;
-      font-family: 'Orbitron';
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(28px, 3.5vw, 44px);
+      letter-spacing: -1px;
     }
 
-    .skills span {
-      display: inline-block;
-      background: #111;
-      margin: 5px;
-      padding: 8px 12px;
-      border: 1px solid #333;
+    h2 em {
+      font-style: normal;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(240,240,240,0.3);
     }
+
+    .timeline { position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+
+    .exp-item {
+      padding-left: 36px;
+      margin-bottom: 56px;
+      position: relative;
+    }
+
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      left: -4px; top: 6px;
+      width: 9px; height: 9px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--accent);
+    }
+
+    .exp-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .exp-company {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .exp-role {
+      font-size: 11px;
+      background: rgba(71,201,255,0.1);
+      color: var(--accent2);
+      border: 1px solid rgba(71,201,255,0.2);
+      padding: 3px 10px;
+      border-radius: 2px;
+      letter-spacing: 0.06em;
+    }
+
+    .exp-period {
+      font-size: 11px;
+      color: var(--muted);
+      margin-left: auto;
+      letter-spacing: 0.06em;
+    }
+
+    .exp-projects { margin-top: 20px; display: flex; flex-direction: column; gap: 20px; }
+
+    .proj-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--accent);
+      padding: 20px 24px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .proj-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    .proj-block ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .proj-block li {
+      font-size: 13px;
+      color: #aaa;
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .proj-block li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 11px;
+    }
+
+    .highlight { color: var(--text); font-weight: 500; }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-cat {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 28px;
+      border-radius: 4px;
+      transition: border-color 0.2s;
+    }
+    .skill-cat:hover { border-color: rgba(232,255,71,0.3); }
+
+    .skill-cat-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .tag {
+      font-size: 11px;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+    .tag:hover { border-color: var(--text); color: var(--text); }
+
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .edu-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 32px;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: border-color 0.2s;
+    }
+    .edu-card:hover { border-color: rgba(232,255,71,0.3); }
+
+    .edu-degree {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .edu-inst { font-size: 13px; color: var(--muted); }
+
+    .edu-score {
+      font-size: 24px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      color: var(--accent);
+      margin-top: 8px;
+    }
+
+    .edu-year {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    #contact {
+      text-align: center;
+      padding: 96px 48px;
+    }
+
+    #contact h2 { margin-bottom: 12px; }
+
+    .contact-sub {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      text-decoration: none;
+      border-radius: 2px;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      transition: all 0.2s;
+    }
+    .contact-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .contact-link svg { width: 16px; height: 16px; }
 
     footer {
-      text-align: center;
-      padding: 20px;
-      border-top: 1px solid #222;
-      color: #777;
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--muted);
     }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      #hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 40px; }
+      section { padding: 64px 24px; }
+      .edu-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 8px; text-align: center; }
+      .exp-period { margin-left: 0; width: 100%; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity:0; transform: translateY(30px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+    .hero-left > * { animation: fadeUp 0.7s ease both; }
+    .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-left > *:nth-child(2) { animation-delay: 0.25s; }
+    .hero-left > *:nth-child(3) { animation-delay: 0.4s; }
+    .hero-left > *:nth-child(4) { animation-delay: 0.55s; }
   </style>
 </head>
-
 <body>
 
-<header>
-  <h2>SV</h2>
-  <nav>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#education">Education</a>
-  </nav>
-</header>
+<nav>
+  <a href="#" class="nav-logo">SV</a>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-<section class="hero">
+<section id="hero">
   <div class="hero-left">
-    <p class="highlight">AVAILABLE FOR OPPORTUNITIES</p>
-    <h1>Satish <br> Vishwakarma</h1>
-
-    <p>
-      Flutter Developer with 2+ years of experience building scalable cross-platform apps 
-      (Android, iOS, Web). Skilled in Flutter, Dart, REST APIs, and clean architecture.
+    <div class="hero-tag">Available for opportunities</div>
+    <h1>
+      SATISH<br>
+      <span class="line2">VISHWAKARMA</span>
+    </h1>
+    <p class="hero-sub">
+      Flutter Developer from <span>Indore, India</span> · Building scalable cross-platform apps for <span>Android, iOS, and Web</span> with Flutter, Dart, REST APIs, and clean architecture.
     </p>
-
-    <button class="btn">Contact Me</button>
+    <div class="hero-cta">
+      <a href="mailto:satish.vishwakarma.it@gmail.com" class="btn btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+        Get in touch
+      </a>
+      <a href="https://linkedin.com/in/satish-vishwakarma" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+      <a href="https://github.com/" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+    </div>
   </div>
 
   <div class="hero-right">
-    <div class="card">
-      <h3>2+ Years</h3>
-      <p>Experience</p>
+    <div class="stat-card">
+      <div>
+        <div class="stat-val">2+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-icon">⚡</div>
     </div>
-
-    <div class="card">
-      <h3>25%</h3>
-      <p>Performance Improvement</p>
+    <div class="stat-card">
+      <div>
+        <div class="stat-val">25%</div>
+        <div class="stat-label">Performance Improvement</div>
+      </div>
+      <div class="stat-icon">📈</div>
     </div>
-
-    <div class="card">
-      <h3>40%</h3>
-      <p>API Optimization</p>
+    <div class="stat-card">
+      <div>
+        <div class="stat-val">40%</div>
+        <div class="stat-label">API Response Optimization</div>
+      </div>
+      <div class="stat-icon">🚀</div>
+    </div>
+    <div class="stat-card">
+      <div>
+        <div class="stat-val">10K+</div>
+        <div class="stat-label">Downloads on Play Store</div>
+      </div>
+      <div class="stat-icon">🏆</div>
     </div>
   </div>
 </section>
 
 <section id="experience">
-  <h2>Work Experience</h2>
-
-  <div class="card">
-    <h3>Associate Software Engineer - Softude</h3>
-    <p>May 2025 – Present</p>
-    <ul>
-      <li>Improved app performance by 25%</li>
-      <li>Reduced API response time by 40%</li>
-      <li>Led 2 junior developers</li>
-    </ul>
+  <div class="section-header">
+    <span class="section-num">01 /</span>
+    <h2>Work <em>Experience</em></h2>
   </div>
 
-  <div class="card">
-    <h3>Graduate Engineer Trainee</h3>
-    <p>Nov 2024 – Apr 2025</p>
-    <ul>
-      <li>Reusable Flutter components</li>
-      <li>State management using GetX & Provider</li>
-    </ul>
-  </div>
+  <div class="timeline">
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <span class="exp-company">Softude</span>
+        <span class="exp-role">Associate Software Engineer</span>
+        <span class="exp-period">May 2025 – Present · Indore, India</span>
+      </div>
+      <div class="exp-projects">
+        <div class="proj-block">
+          <div class="proj-title">◈ Production Flutter Development</div>
+          <ul>
+            <li>Promoted from Intern → Graduate Engineer Trainee → Associate Engineer within 1 year for consistent high-impact contributions.</li>
+            <li>Engineered scalable Flutter applications with optimized architecture, improving app performance by <span class="highlight">25%</span> and reducing latency.</li>
+            <li>Optimized backend communication and API handling, reducing response time by <span class="highlight">40%</span> using AI tools.</li>
+            <li>Mentored and led two junior developers on an enterprise application, delivering production-grade features on schedule.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-  <div class="card">
-    <h3>Intern - Softude</h3>
-    <p>Sep 2024 – Oct 2024</p>
-    <ul>
-      <li>Node.js backend & REST APIs</li>
-      <li>Git collaboration</li>
-    </ul>
-  </div>
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <span class="exp-company">Softude</span>
+        <span class="exp-role">Graduate Engineer Trainee</span>
+        <span class="exp-period">Nov 2024 – Apr 2025 · Indore, India</span>
+      </div>
+      <div class="exp-projects">
+        <div class="proj-block">
+          <div class="proj-title">◈ Flutter Components & State Management</div>
+          <ul>
+            <li>Developed reusable and modular Flutter components, reducing development effort by <span class="highlight">20%</span>.</li>
+            <li>Integrated REST APIs and implemented efficient state management using <span class="highlight">GetX</span> and <span class="highlight">Provider</span>.</li>
+            <li>Improved application performance through debugging, profiling, and optimization of production code.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <span class="exp-company">Softude</span>
+        <span class="exp-role">Software Engineer Intern</span>
+        <span class="exp-period">Sep 2024 – Oct 2024 · Indore, India</span>
+      </div>
+      <div class="exp-projects">
+        <div class="proj-block">
+          <div class="proj-title">◈ Backend Support & Collaboration</div>
+          <ul>
+            <li>Developed backend services and REST APIs using <span class="highlight">Node.js</span> and <span class="highlight">MongoDB</span>.</li>
+            <li>Applied version control and collaborative workflows using <span class="highlight">Git</span> in a team environment.</li>
+            <li>Resolved bugs and improved application reliability through structured debugging.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <span class="exp-company">InfoBeans Foundation</span>
+        <span class="exp-role">Trainee Software Developer</span>
+        <span class="exp-period">May 2023 – Jul 2024 · Indore, India</span>
+      </div>
+      <div class="exp-projects">
+        <div class="proj-block">
+          <div class="proj-title">◈ Training & Full-Stack Foundations</div>
+          <ul>
+            <li>Completed intensive training in <span class="highlight">Java, JavaScript, and MERN stack</span> with hands-on project development.</li>
+            <li>Structured applications using <span class="highlight">Microservice</span> and <span class="highlight">MVC</span> architecture, improving maintainability and scalability.</li>
+            <li>Designed and developed projects including e-commerce and SPA-based applications with frontend-backend connectivity.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="projects">
-  <h2>Projects</h2>
-
-  <div class="card">
-    <h3>Eicher SiteOne</h3>
-    <p>Flutter | Node.js | PostgreSQL</p>
-    <p>Enterprise vehicle service management system with SAP integration and uptime dashboards.</p>
+  <div class="section-header">
+    <span class="section-num">02 /</span>
+    <h2>Featured <em>Projects</em></h2>
   </div>
 
-  <div class="card">
-    <h3>AudioCalls App</h3>
-    <p>Flutter | Firebase | Agora</p>
-    <p>Real-time random voice calling platform with matchmaking & bilingual UI.</p>
-  </div>
+  <div class="timeline">
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <span class="exp-company">Eicher SiteOne</span>
+        <span class="exp-role">Flutter + Node.js + PostgreSQL</span>
+      </div>
+      <div class="exp-projects">
+        <div class="proj-block">
+          <div class="proj-title">◈ Enterprise Vehicle Service Platform</div>
+          <ul>
+            <li>Built a cross-platform digital solution for vehicle service operations in construction and mining sectors, supporting Web, Mobile, and Tablet views using Flutter.</li>
+            <li>Implemented complete job card lifecycle (T0–T6), service ticket workflows, inventory management, uptime reporting, and SLA dashboards.</li>
+            <li>Integrated SAP (DBM), Telematics, Predictive Diagnostics, and Uptime Center for auto job card generation on “Stop Now” alerts.</li>
+            <li><a href="https://dev-vecvsitesupport.siplsolutions.com" target="_blank" style="color: var(--accent2); text-decoration:none;">Live link</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-  <div class="card">
-    <h3>FileSecure App</h3>
-    <p>Flutter</p>
-    <p>Secure vault app with 10K+ downloads and biometric protection.</p>
-  </div>
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <span class="exp-company">AudioCalls</span>
+        <span class="exp-role">Flutter + GetX + Firebase + Agora RTC</span>
+      </div>
+      <div class="exp-projects">
+        <div class="proj-block">
+          <div class="proj-title">◈ Random Voice Calling Platform</div>
+          <ul>
+            <li>Developed the Flutter mobile frontend for a real-time voice calling app that randomly matches users for one-to-one conversations based on shared interests.</li>
+            <li>Implemented topic-based matchmaking UI with queue states and integrated Agora RTC Engine for high-quality voice calls with mute and speaker controls.</li>
+            <li>Built authentication flow with Google Sign-In, Firebase Auth, JWT-based session management, onboarding, and profile management screens.</li>
+            <li>Added bilingual support (English & Hindi) and responsive dark-themed UI.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <span class="exp-company">FileSecure App</span>
+        <span class="exp-role">Flutter + Android</span>
+      </div>
+      <div class="exp-projects">
+        <div class="proj-block">
+          <div class="proj-title">◈ Secure Vault Application</div>
+          <ul>
+            <li>Protected sensitive photos, videos, and documents with encryption and biometric security.</li>
+            <li>Ensured clean architecture and modular backend structure for maintainability.</li>
+            <li>Published Android application with <span class="highlight">10,000+</span> downloads on Play Store.</li>
+            <li><a href="https://play.google.com/store/apps/details?id=com.photoandvideoapps.fileSecurevault" target="_blank" style="color: var(--accent2); text-decoration:none;">Play Store link</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section id="skills">
-  <h2>Skills</h2>
+  <div class="section-header">
+    <span class="section-num">03 /</span>
+    <h2>Skills & <em>Tech Stack</em></h2>
+  </div>
 
-  <div class="skills">
-    <span>Flutter</span>
-    <span>Dart</span>
-    <span>JavaScript</span>
-    <span>Firebase</span>
-    <span>REST API</span>
-    <span>GetX</span>
-    <span>Provider</span>
-    <span>Bloc</span>
-    <span>SQLite</span>
+  <div class="skills-grid">
+    <div class="skill-cat reveal">
+      <div class="skill-cat-title">Flutter Ecosystem</div>
+      <div class="skill-tags">
+        <span class="tag">Flutter</span>
+        <span class="tag">Dart</span>
+        <span class="tag">Widget Design</span>
+        <span class="tag">Responsive UI</span>
+        <span class="tag">Clean Architecture</span>
+        <span class="tag">Reusable Modules</span>
+      </div>
+    </div>
+    <div class="skill-cat reveal">
+      <div class="skill-cat-title">State & App Architecture</div>
+      <div class="skill-tags">
+        <span class="tag">GetX</span>
+        <span class="tag">Provider</span>
+        <span class="tag">Bloc</span>
+        <span class="tag">MVC</span>
+        <span class="tag">Microservices</span>
+      </div>
+    </div>
+    <div class="skill-cat reveal">
+      <div class="skill-cat-title">Backend & APIs</div>
+      <div class="skill-tags">
+        <span class="tag">Node.js</span>
+        <span class="tag">REST API</span>
+        <span class="tag">MongoDB</span>
+        <span class="tag">Firebase</span>
+        <span class="tag">Dio</span>
+        <span class="tag">JWT</span>
+      </div>
+    </div>
+    <div class="skill-cat reveal">
+      <div class="skill-cat-title">Databases</div>
+      <div class="skill-tags">
+        <span class="tag">SQLite</span>
+        <span class="tag">Firebase</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">MongoDB</span>
+      </div>
+    </div>
+    <div class="skill-cat reveal">
+      <div class="skill-cat-title">Languages</div>
+      <div class="skill-tags">
+        <span class="tag">Dart</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Core Java</span>
+        <span class="tag">Java</span>
+      </div>
+    </div>
+    <div class="skill-cat reveal">
+      <div class="skill-cat-title">Tools & Libraries</div>
+      <div class="skill-tags">
+        <span class="tag">Android Studio</span>
+        <span class="tag">VS Code</span>
+        <span class="tag">Git</span>
+        <span class="tag">Third-Party APIs</span>
+        <span class="tag">Push Notifications</span>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="education">
-  <h2>Education</h2>
-
-  <div class="card">
-    <h3>MCA - RGPV Bhopal</h3>
-    <p>2024 – Present</p>
+  <div class="section-header">
+    <span class="section-num">04 /</span>
+    <h2>Education & <em>Profile</em></h2>
   </div>
 
-  <div class="card">
-    <h3>BCA - DAVV Indore</h3>
-    <p>CGPA: 8.20</p>
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <div class="edu-degree">MCA</div>
+      <div class="edu-inst">Rajiv Gandhi Proudyogiki Vishwavidyalaya (RGPV), Bhopal</div>
+      <div class="edu-score">2024 – Present</div>
+      <div class="edu-year">Postgraduate</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-degree">BCA</div>
+      <div class="edu-inst">Devi Ahilya Vishwavidyalaya (DAVV), Indore</div>
+      <div class="edu-score">8.20 CGPA</div>
+      <div class="edu-year">2021 – 2024</div>
+    </div>
   </div>
 
+  <div style="margin-top: 24px;" class="reveal">
+    <div class="edu-card" style="flex-direction: row; align-items: center; gap: 24px;">
+      <div style="font-size: 32px;">🏅</div>
+      <div>
+        <div class="edu-degree" style="font-size: 14px;">CBSE — All India Senior Secondary Certificate</div>
+        <div class="edu-inst">Science · 75% · 2019 – 2021</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-header" style="justify-content: center;">
+    <span class="section-num">05 /</span>
+    <h2>Let's <em>Connect</em></h2>
+  </div>
+  <p class="contact-sub">Open to Flutter Developer roles, product work, and interesting engineering problems.</p>
+  <div class="contact-links">
+    <a href="mailto:satish.vishwakarma.it@gmail.com" class="contact-link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+      satish.vishwakarma.it@gmail.com
+    </a>
+    <a href="tel:+918889344744" class="contact-link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.08 6.08l1.27-.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      +91 88893 44744
+    </a>
+    <a href="https://linkedin.com/in/satish-vishwakarma" target="_blank" class="contact-link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://github.com/" target="_blank" class="contact-link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      GitHub
+    </a>
+  </div>
 </section>
 
 <footer>
-  <p>© 2026 Satish Vishwakarma</p>
+  <span>© 2026 Satish Vishwakarma</span>
+  <span>Built with pure HTML/CSS · Hosted on GitHub Pages</span>
 </footer>
 
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
+
