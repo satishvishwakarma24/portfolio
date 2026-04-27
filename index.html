@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satish Vishwakarma | Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #0a0a0a;
+      color: #fff;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 60px;
+      border-bottom: 1px solid #222;
+    }
+
+    header h2 {
+      color: #c6ff00;
+      font-family: 'Orbitron';
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #aaa;
+    }
+
+    .hero {
+      padding: 80px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero-left h1 {
+      font-size: 60px;
+      font-family: 'Orbitron';
+    }
+
+    .highlight {
+      color: #c6ff00;
+    }
+
+    .hero-left p {
+      margin-top: 20px;
+      color: #bbb;
+      max-width: 500px;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 12px 20px;
+      background: #c6ff00;
+      color: black;
+      border: none;
+      cursor: pointer;
+    }
+
+    .card {
+      background: #111;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: 1px solid #222;
+    }
+
+    section {
+      padding: 60px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-family: 'Orbitron';
+    }
+
+    .skills span {
+      display: inline-block;
+      background: #111;
+      margin: 5px;
+      padding: 8px 12px;
+      border: 1px solid #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #222;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>SV</h2>
+  <nav>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-left">
+    <p class="highlight">AVAILABLE FOR OPPORTUNITIES</p>
+    <h1>Satish <br> Vishwakarma</h1>
+
+    <p>
+      Flutter Developer with 2+ years of experience building scalable cross-platform apps 
+      (Android, iOS, Web). Skilled in Flutter, Dart, REST APIs, and clean architecture.
+    </p>
+
+    <button class="btn">Contact Me</button>
+  </div>
+
+  <div class="hero-right">
+    <div class="card">
+      <h3>2+ Years</h3>
+      <p>Experience</p>
+    </div>
+
+    <div class="card">
+      <h3>25%</h3>
+      <p>Performance Improvement</p>
+    </div>
+
+    <div class="card">
+      <h3>40%</h3>
+      <p>API Optimization</p>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Work Experience</h2>
+
+  <div class="card">
+    <h3>Associate Software Engineer - Softude</h3>
+    <p>May 2025 – Present</p>
+    <ul>
+      <li>Improved app performance by 25%</li>
+      <li>Reduced API response time by 40%</li>
+      <li>Led 2 junior developers</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Graduate Engineer Trainee</h3>
+    <p>Nov 2024 – Apr 2025</p>
+    <ul>
+      <li>Reusable Flutter components</li>
+      <li>State management using GetX & Provider</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Intern - Softude</h3>
+    <p>Sep 2024 – Oct 2024</p>
+    <ul>
+      <li>Node.js backend & REST APIs</li>
+      <li>Git collaboration</li>
+    </ul>
+  </div>
+
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="card">
+    <h3>Eicher SiteOne</h3>
+    <p>Flutter | Node.js | PostgreSQL</p>
+    <p>Enterprise vehicle service management system with SAP integration and uptime dashboards.</p>
+  </div>
+
+  <div class="card">
+    <h3>AudioCalls App</h3>
+    <p>Flutter | Firebase | Agora</p>
+    <p>Real-time random voice calling platform with matchmaking & bilingual UI.</p>
+  </div>
+
+  <div class="card">
+    <h3>FileSecure App</h3>
+    <p>Flutter</p>
+    <p>Secure vault app with 10K+ downloads and biometric protection.</p>
+  </div>
+
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+
+  <div class="skills">
+    <span>Flutter</span>
+    <span>Dart</span>
+    <span>JavaScript</span>
+    <span>Firebase</span>
+    <span>REST API</span>
+    <span>GetX</span>
+    <span>Provider</span>
+    <span>Bloc</span>
+    <span>SQLite</span>
+  </div>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+
+  <div class="card">
+    <h3>MCA - RGPV Bhopal</h3>
+    <p>2024 – Present</p>
+  </div>
+
+  <div class="card">
+    <h3>BCA - DAVV Indore</h3>
+    <p>CGPA: 8.20</p>
+  </div>
+
+</section>
+
+<footer>
+  <p>© 2026 Satish Vishwakarma</p>
+</footer>
+
+</body>
+</html>
