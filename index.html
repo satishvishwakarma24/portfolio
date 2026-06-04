@@ -236,6 +236,20 @@
       -webkit-text-stroke: 1px rgba(240,240,240,0.3);
     }
 
+    /* Summary section */
+    .summary-block {
+      background: linear-gradient(145deg, #141414, #0f0f0f);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--accent);
+      padding: 28px 32px;
+      border-radius: 0 6px 6px 0;
+      font-size: 14px;
+      color: #bbb;
+      line-height: 1.9;
+      max-width: 820px;
+    }
+    .summary-block span { color: var(--accent); }
+
     .timeline { position: relative; }
     .timeline::before {
       content: '';
@@ -362,10 +376,9 @@
     }
 
     .skill-cat:hover {
-      border-color: var(--accent);
+      border-color: rgba(232,255,71,0.3);
       box-shadow: 0 0 18px var(--card-glow);
     }
-    .skill-cat:hover { border-color: rgba(232,255,71,0.3); }
 
     .skill-cat-title {
       font-family: 'Syne', sans-serif;
@@ -393,7 +406,6 @@
       color: var(--accent);
       background: rgba(217,255,63,0.05);
     }
-    .tag:hover { border-color: var(--text); color: var(--text); }
 
     .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
@@ -409,10 +421,9 @@
     }
 
     .edu-card:hover {
-      border-color: var(--accent);
+      border-color: rgba(232,255,71,0.3);
       box-shadow: 0 0 18px var(--card-glow);
     }
-    .edu-card:hover { border-color: rgba(232,255,71,0.3); }
 
     .edu-degree {
       font-family: 'Syne', sans-serif;
@@ -476,6 +487,46 @@
 
     .contact-link svg { width: 16px; height: 16px; }
 
+    button.contact-link {
+      background: none;
+      cursor: pointer;
+      font-family: 'DM Mono', monospace;
+      position: relative;
+    }
+    .copy-icon {
+      margin-left: 6px;
+      font-size: 14px;
+      opacity: 0.5;
+      transition: opacity 0.2s;
+    }
+    button.contact-link:hover .copy-icon { opacity: 1; color: var(--accent); }
+    button.contact-link.copied {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .copy-toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--accent);
+      color: #0a0a0a;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 4px;
+      opacity: 0;
+      transition: all 0.25s ease;
+      pointer-events: none;
+      z-index: 9999;
+      letter-spacing: 0.06em;
+    }
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
     footer {
       padding: 24px 48px;
       display: flex;
@@ -503,32 +554,18 @@
       .edu-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 8px; text-align: center; }
       .exp-period { margin-left: 0; width: 100%; }
-
-      /* FIX: Hero name overflow */
       h1 {
         font-size: 42px;
         letter-spacing: -1px;
         line-height: 1.05;
         word-break: break-word;
       }
-
       h1 .line2 {
         display: block;
         font-size: 38px;
         -webkit-text-stroke: 1px rgba(240,240,240,0.25);
       }
-
-      .hero-sub {
-        font-size: 13px;
-        max-width: 100%;
-      }
-    }
-      .nav-links { display: none; }
-      #hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 40px; }
-      section { padding: 64px 24px; }
-      .edu-grid { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 8px; text-align: center; }
-      .exp-period { margin-left: 0; width: 100%; }
+      .hero-sub { font-size: 13px; max-width: 100%; }
     }
 
     @keyframes fadeUp {
@@ -547,6 +584,7 @@
 <nav>
   <a href="#" class="nav-logo">SV</a>
   <ul class="nav-links">
+    <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -555,15 +593,16 @@
   </ul>
 </nav>
 
+<!-- ── HERO ── -->
 <section id="hero">
   <div class="hero-left">
-    <div class="hero-tag">Available for opportunities</div>
+    <div class="hero-tag">Open to Remote · Available Now</div>
     <h1>
       SATISH<br>
       <span class="line2">VISHWAKARMA</span>
     </h1>
     <p class="hero-sub">
-      Flutter Developer from <span>Indore, India</span> · Building scalable cross-platform apps for <span>Android, iOS, and Web</span> with Flutter, Dart, REST APIs, and clean architecture.
+      Flutter Developer from <span>Indore, India</span> · Building scalable cross-platform apps for <span>Android, iOS, and Web</span> with Flutter, Dart, clean architecture, and modern state management.
     </p>
     <div class="hero-cta">
       <a href="mailto:satish.vishwakarma.it@gmail.com" class="btn btn-primary">
@@ -571,7 +610,7 @@
         Get in touch
       </a>
       <a href="https://linkedin.com/in/satish-vishwakarma" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
-      <a href="https://github.com/" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+      <a href="https://github.com/satishvishwakarma24/" target="_blank" class="btn btn-ghost">GitHub ↗</a>
     </div>
   </div>
 
@@ -585,28 +624,40 @@
     </div>
     <div class="stat-card">
       <div>
-        <div class="stat-val">25%</div>
-        <div class="stat-label">Performance Improvement</div>
+        <div class="stat-val">150+</div>
+        <div class="stat-label">REST APIs Integrated</div>
       </div>
-      <div class="stat-icon">📈</div>
+      <div class="stat-icon">🚀</div>
     </div>
     <div class="stat-card">
       <div>
-        <div class="stat-val">40%</div>
-        <div class="stat-label">API Response Optimization</div>
+        <div class="stat-val">5+</div>
+        <div class="stat-label">Apps on Play Store</div>
       </div>
-      <div class="stat-icon">🚀</div>
+      <div class="stat-icon">🏆</div>
     </div>
     <div class="stat-card">
       <div>
         <div class="stat-val">10K+</div>
         <div class="stat-label">Downloads on Play Store</div>
       </div>
-      <div class="stat-icon">🏆</div>
+      <div class="stat-icon">📲</div>
     </div>
   </div>
 </section>
 
+<!-- ── ABOUT / SUMMARY ── -->
+<section id="about">
+  <div class="section-header">
+    <span class="section-num">00 /</span>
+    <h2>Professional <em>Summary</em></h2>
+  </div>
+  <div class="summary-block reveal">
+    Results-driven Flutter Developer with <span>2+ years of experience</span> building high-performance, cross-platform mobile applications for Android and iOS. Proven ability to architect scalable solutions using <span>Flutter, Dart</span>, and modern state management (GetX, Riverpod, Provider), with a strong focus on pixel-perfect UI/UX, clean architecture, and production-ready delivery. Experienced collaborating with design, backend, and QA teams in fast-paced, <span>Agile/Scrum</span> environments. Rapidly promoted from Intern to Associate Software Engineer within one year at Softude, consistently delivering complex features on schedule.
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
 <section id="experience">
   <div class="section-header">
     <span class="section-num">01 /</span>
@@ -614,25 +665,28 @@
   </div>
 
   <div class="timeline">
+
+    <!-- Softude – Associate -->
     <div class="exp-item reveal">
       <div class="exp-meta">
         <span class="exp-company">Softude</span>
         <span class="exp-role">Associate Software Engineer</span>
-        <span class="exp-period">May 2025 – Present · Indore, India</span>
+        <span class="exp-period">May 2025 – Mar 2026 · Indore, India</span>
       </div>
       <div class="exp-projects">
         <div class="proj-block">
           <div class="proj-title">◈ Production Flutter Development</div>
           <ul>
-            <li>Promoted from Intern → Graduate Engineer Trainee → Associate Engineer within 1 year for consistent high-impact contributions.</li>
-            <li>Engineered scalable Flutter applications with optimized architecture, improving app performance by <span class="highlight">25%</span> and reducing latency.</li>
-            <li>Optimized backend communication and API handling, reducing response time by <span class="highlight">40%</span> using AI tools.</li>
-            <li>Mentored and led two junior developers on an enterprise application, delivering production-grade features on schedule.</li>
+            <li>Promoted from Intern → Graduate Engineer Trainee → Associate Software Engineer in under <span class="highlight">12 months</span>, outpacing the standard 18-month progression track.</li>
+            <li>Collaborated daily with UI/UX designers, backend engineers, and QA teams to translate designs into pixel-perfect, responsive Flutter UIs across phone and tablet form factors.</li>
+            <li>Delivered end-to-end sprint features in Agile/Scrum cycles, consistently meeting sprint deadlines across <span class="highlight">3 concurrent enterprise mobile projects</span>.</li>
+            <li>Mentored <span class="highlight">2 junior Flutter developers</span> through code reviews and pair-programming sessions, accelerating team output and ensuring on-schedule delivery of production features.</li>
           </ul>
         </div>
       </div>
     </div>
 
+    <!-- Softude – Graduate Engineer -->
     <div class="exp-item reveal">
       <div class="exp-meta">
         <span class="exp-company">Softude</span>
@@ -643,14 +697,15 @@
         <div class="proj-block">
           <div class="proj-title">◈ Flutter Components & State Management</div>
           <ul>
-            <li>Developed reusable and modular Flutter components, reducing development effort by <span class="highlight">20%</span>.</li>
-            <li>Integrated REST APIs and implemented efficient state management using <span class="highlight">GetX</span> and <span class="highlight">Provider</span>.</li>
-            <li>Improved application performance through debugging, profiling, and optimization of production code.</li>
+            <li>Engineered a reusable Flutter component library (<span class="highlight">30+ custom widgets</span>) aligned with modern UI/UX practices, reducing new-feature development effort and enforcing design consistency.</li>
+            <li>Integrated <span class="highlight">15+ REST API endpoints</span> with error-handling, loading states, and retry logic using Dio; implemented reactive state management with <span class="highlight">GetX and Provider</span> for real-time, responsive UIs.</li>
+            <li>Profiled production builds with Flutter DevTools, improving average frame rate consistency across core application modules.</li>
           </ul>
         </div>
       </div>
     </div>
 
+    <!-- Softude – Intern -->
     <div class="exp-item reveal">
       <div class="exp-meta">
         <span class="exp-company">Softude</span>
@@ -661,14 +716,15 @@
         <div class="proj-block">
           <div class="proj-title">◈ Backend Support & Collaboration</div>
           <ul>
-            <li>Developed backend services and REST APIs using <span class="highlight">Node.js</span> and <span class="highlight">MongoDB</span>.</li>
-            <li>Applied version control and collaborative workflows using <span class="highlight">Git</span> in a team environment.</li>
-            <li>Resolved bugs and improved application reliability through structured debugging.</li>
+            <li>Designed and deployed RESTful backend services using <span class="highlight">Node.js and MongoDB</span>, establishing CRUD endpoints consumed by the Flutter frontend team.</li>
+            <li>Enforced Git branching strategy (feature/release) and pull-request review workflows, improving team-wide code quality.</li>
+            <li>Debugged and resolved <span class="highlight">10+ critical issues</span> within the first four weeks, directly enabling a stable MVP release.</li>
           </ul>
         </div>
       </div>
     </div>
 
+    <!-- InfoBeans Foundation -->
     <div class="exp-item reveal">
       <div class="exp-meta">
         <span class="exp-company">InfoBeans Foundation</span>
@@ -679,16 +735,37 @@
         <div class="proj-block">
           <div class="proj-title">◈ Training & Full-Stack Foundations</div>
           <ul>
-            <li>Completed intensive training in <span class="highlight">Java, JavaScript, and MERN stack</span> with hands-on project development.</li>
-            <li>Structured applications using <span class="highlight">Microservice</span> and <span class="highlight">MVC</span> architecture, improving maintainability and scalability.</li>
-            <li>Designed and developed projects including e-commerce and SPA-based applications with frontend-backend connectivity.</li>
+            <li>Completed a <span class="highlight">14-month program</span> covering Java, JavaScript, and the full MERN stack (MongoDB, Express.js, React.js, Node.js) with project-based assessments and mentored code reviews.</li>
+            <li>Built and shipped <span class="highlight">3 full-stack applications</span> including an e-commerce platform and SPA, handling REST API design through to responsive frontend implementation.</li>
+            <li>Applied <span class="highlight">Microservice and MVC</span> architecture patterns, improving codebase modularity and reducing feature delivery time across collaborative team projects.</li>
           </ul>
         </div>
       </div>
     </div>
+
+    <!-- mBrainApps — NEW -->
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <span class="exp-company">mBrainApps</span>
+        <span class="exp-role">Android & Flutter Developer Intern</span>
+        <span class="exp-period">Jan 2023 – Jun 2023 · Indore, India</span>
+      </div>
+      <div class="exp-projects">
+        <div class="proj-block">
+          <div class="proj-title">◈ Native Android & Flutter Development</div>
+          <ul>
+            <li>Developed native Android and Flutter applications with responsive UI, state management, and REST API integration for scalable cross-platform mobile solutions.</li>
+            <li>Integrated device-native features including <span class="highlight">camera, GPS, local storage, push notifications, file handling</span>, and runtime permissions using Android SDK and Flutter plugins.</li>
+            <li>Collaborated on debugging, testing, and deploying mobile applications following <span class="highlight">MVC architecture</span>, clean coding standards, and Git-based version control workflows.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
+<!-- ── PROJECTS ── -->
 <section id="projects">
   <div class="section-header">
     <span class="section-num">02 /</span>
@@ -696,62 +773,71 @@
   </div>
 
   <div class="timeline">
+
+    <!-- Eicher SiteOne -->
     <div class="exp-item reveal">
       <div class="exp-meta">
         <span class="exp-company">Eicher SiteOne</span>
-        <span class="exp-role">Flutter + Node.js + PostgreSQL</span>
+        <span class="exp-role">Flutter · Node.js · PostgreSQL · SAP</span>
       </div>
       <div class="exp-projects">
         <div class="proj-block">
-          <div class="proj-title">◈ Enterprise Vehicle Service Platform</div>
+          <div class="proj-title">◈ Enterprise Cross-Platform Vehicle Service Platform</div>
           <ul>
-            <li>Built a cross-platform digital solution for vehicle service operations in construction and mining sectors, supporting Web, Mobile, and Tablet views using Flutter.</li>
-            <li>Implemented complete job card lifecycle (T0–T6), service ticket workflows, inventory management, uptime reporting, and SLA dashboards.</li>
-            <li>Integrated SAP (DBM), Telematics, Predictive Diagnostics, and Uptime Center for auto job card generation on “Stop Now” alerts.</li>
-            <li><a href="https://dev-vecvsitesupport.siplsolutions.com" target="_blank" style="color: var(--accent2); text-decoration:none;">Live link</a></li>
+            <li>Architected and delivered a cross-platform (<span class="highlight">Android, iOS, Web, Tablet</span>) vehicle service management app for the construction and mining sectors; implemented a <span class="highlight">7-stage job card lifecycle (T0–T6)</span> with real-time customer approvals, cost summaries, and automated invoice generation.</li>
+            <li>Designed highly responsive, adaptive Flutter UIs following Material Design guidelines, ensuring consistent UX across mobile and tablet form factors used by <span class="highlight">500+ field technicians</span>.</li>
+            <li>Integrated <span class="highlight">SAP (DBM), Telematics, and Predictive Diagnostics</span> for auto job card generation; secured the platform with role-based access control via Active Directory and SAP NetWeaver Gateway.</li>
+            <li>
+              <a href="https://play.google.com/store/apps/details?id=com.eicher.siteone" target="_blank" style="color: var(--accent2); text-decoration:none;">Play Store ↗</a>
+              &nbsp;·&nbsp;
+              <a href="https://dev-vecvsitesupport.siplsolutions.com" target="_blank" style="color: var(--accent2); text-decoration:none;">Web App ↗</a>
+            </li>
           </ul>
         </div>
       </div>
     </div>
 
+    <!-- Voice Buddy (was AudioCalls) -->
     <div class="exp-item reveal">
       <div class="exp-meta">
-        <span class="exp-company">AudioCalls</span>
-        <span class="exp-role">Flutter + GetX + Firebase + Agora RTC</span>
+        <span class="exp-company">Voice Buddy</span>
+        <span class="exp-role">Flutter · GetX · Firebase · Agora RTC</span>
       </div>
       <div class="exp-projects">
         <div class="proj-block">
-          <div class="proj-title">◈ Random Voice Calling Platform</div>
+          <div class="proj-title">◈ Real-Time Voice Calling Platform</div>
           <ul>
-            <li>Developed the Flutter mobile frontend for a real-time voice calling app that randomly matches users for one-to-one conversations based on shared interests.</li>
-            <li>Implemented topic-based matchmaking UI with queue states and integrated Agora RTC Engine for high-quality voice calls with mute and speaker controls.</li>
-            <li>Built authentication flow with Google Sign-In, Firebase Auth, JWT-based session management, onboarding, and profile management screens.</li>
-            <li>Added bilingual support (English & Hindi) and responsive dark-themed UI.</li>
+            <li>Built a production-grade, cross-platform voice calling app featuring <span class="highlight">topic-based matchmaking</span>; integrated <span class="highlight">Agora RTC Engine</span> for sub-200ms, high-fidelity calls with mute and speaker controls on both Android and iOS.</li>
+            <li>Implemented multi-layer authentication (<span class="highlight">Google Sign-In, Firebase Auth, JWT</span>) with AES-encrypted local storage; architected reactive state with <span class="highlight">GetX MVC</span> and Dio for all API interactions.</li>
+            <li>Shipped bilingual (English/Hindi) localization, fully responsive dark UI via flutter_screenutil, and a <span class="highlight">4-step onboarding flow</span> ensuring seamless UX across 5+ device sizes.</li>
           </ul>
         </div>
       </div>
     </div>
 
+    <!-- FileSecure -->
     <div class="exp-item reveal">
       <div class="exp-meta">
-        <span class="exp-company">FileSecure App</span>
-        <span class="exp-role">Flutter + Android</span>
+        <span class="exp-company">FileSecure</span>
+        <span class="exp-role">Flutter · Android · Biometric Auth · AES-256</span>
       </div>
       <div class="exp-projects">
         <div class="proj-block">
-          <div class="proj-title">◈ Secure Vault Application</div>
+          <div class="proj-title">◈ Document Scanner & Secure Vault</div>
           <ul>
-            <li>Protected sensitive photos, videos, and documents with encryption and biometric security.</li>
-            <li>Ensured clean architecture and modular backend structure for maintainability.</li>
-            <li>Published Android application with <span class="highlight">10,000+</span> downloads on Play Store.</li>
-            <li><a href="https://play.google.com/store/apps/details?id=com.photoandvideoapps.fileSecurevault" target="_blank" style="color: var(--accent2); text-decoration:none;">Play Store link</a></li>
+            <li>Built an all-in-one document scanner and encrypted vault app with <span class="highlight">AES-256 encryption</span> and stealth mode; implemented <span class="highlight">biometric (fingerprint & face recognition)</span> and PIN-based authentication for secure access.</li>
+            <li>Developed PDF scanning with multi-page capture, HD quality, auto-cropping, and image filters; designed smart file management with folder organization, grid/list views, full-text search, and one-tap import/export.</li>
+            <li>Published with <span class="highlight">10,000+ downloads</span> on the Play Store.</li>
+            <li><a href="https://play.google.com/store/apps/details?id=com.photoandvideoapps.fileSecurevault" target="_blank" style="color: var(--accent2); text-decoration:none;">Play Store ↗</a></li>
           </ul>
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
+<!-- ── SKILLS ── -->
 <section id="skills">
   <div class="section-header">
     <span class="section-num">03 /</span>
@@ -764,20 +850,31 @@
       <div class="skill-tags">
         <span class="tag">Flutter</span>
         <span class="tag">Dart</span>
-        <span class="tag">Widget Design</span>
+        <span class="tag">Custom Widgets</span>
         <span class="tag">Responsive UI</span>
-        <span class="tag">Clean Architecture</span>
-        <span class="tag">Reusable Modules</span>
+        <span class="tag">Material Design</span>
+        <span class="tag">flutter_screenutil</span>
+        <span class="tag">Adaptive Layouts</span>
       </div>
     </div>
     <div class="skill-cat reveal">
-      <div class="skill-cat-title">State & App Architecture</div>
+      <div class="skill-cat-title">Architecture & Patterns</div>
       <div class="skill-tags">
+        <span class="tag">Clean Architecture</span>
+        <span class="tag">MVC</span>
+        <span class="tag">MVVM</span>
+        <span class="tag">Microservices</span>
+        <span class="tag">OOP</span>
+        <span class="tag">SOLID Principles</span>
+      </div>
+    </div>
+    <div class="skill-cat reveal">
+      <div class="skill-cat-title">State Management</div>
+      <div class="skill-tags">
+        <span class="tag">Riverpod</span>
         <span class="tag">GetX</span>
         <span class="tag">Provider</span>
         <span class="tag">Bloc</span>
-        <span class="tag">MVC</span>
-        <span class="tag">Microservices</span>
       </div>
     </div>
     <div class="skill-cat reveal">
@@ -785,19 +882,21 @@
       <div class="skill-tags">
         <span class="tag">Node.js</span>
         <span class="tag">REST API</span>
-        <span class="tag">MongoDB</span>
-        <span class="tag">Firebase</span>
         <span class="tag">Dio</span>
+        <span class="tag">Firebase</span>
+        <span class="tag">MongoDB</span>
+        <span class="tag">PostgreSQL</span>
         <span class="tag">JWT</span>
       </div>
     </div>
     <div class="skill-cat reveal">
-      <div class="skill-cat-title">Databases</div>
+      <div class="skill-cat-title">Auth & Security</div>
       <div class="skill-tags">
-        <span class="tag">SQLite</span>
-        <span class="tag">Firebase</span>
-        <span class="tag">PostgreSQL</span>
-        <span class="tag">MongoDB</span>
+        <span class="tag">Firebase Auth</span>
+        <span class="tag">Google Sign-In</span>
+        <span class="tag">JWT</span>
+        <span class="tag">AES-256 Encryption</span>
+        <span class="tag">Biometric Auth</span>
       </div>
     </div>
     <div class="skill-cat reveal">
@@ -805,23 +904,38 @@
       <div class="skill-tags">
         <span class="tag">Dart</span>
         <span class="tag">JavaScript</span>
-        <span class="tag">Core Java</span>
         <span class="tag">Java</span>
+        <span class="tag">Core Java</span>
       </div>
     </div>
     <div class="skill-cat reveal">
-      <div class="skill-cat-title">Tools & Libraries</div>
+      <div class="skill-cat-title">Tools & DevOps</div>
       <div class="skill-tags">
         <span class="tag">Android Studio</span>
         <span class="tag">VS Code</span>
-        <span class="tag">Git</span>
-        <span class="tag">Third-Party APIs</span>
+        <span class="tag">Git / GitHub</span>
+        <span class="tag">Postman</span>
+        <span class="tag">CI/CD</span>
+        <span class="tag">Agile / Scrum</span>
+        <span class="tag">Flutter DevTools</span>
+      </div>
+    </div>
+    <div class="skill-cat reveal">
+      <div class="skill-cat-title">Integrations & AI Tools</div>
+      <div class="skill-tags">
+        <span class="tag">Agora RTC</span>
+        <span class="tag">SAP (DBM)</span>
+        <span class="tag">Telematics</span>
         <span class="tag">Push Notifications</span>
+        <span class="tag">Cursor AI</span>
+        <span class="tag">Claude</span>
+        <span class="tag">GitHub Copilot</span>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ── EDUCATION ── -->
 <section id="education">
   <div class="section-header">
     <span class="section-num">04 /</span>
@@ -833,13 +947,13 @@
       <div class="edu-degree">MCA</div>
       <div class="edu-inst">Rajiv Gandhi Proudyogiki Vishwavidyalaya (RGPV), Bhopal</div>
       <div class="edu-score">2024 – Present</div>
-      <div class="edu-year">Postgraduate</div>
+      <div class="edu-year">Master of Computer Applications · Postgraduate</div>
     </div>
     <div class="edu-card reveal">
       <div class="edu-degree">BCA</div>
       <div class="edu-inst">Devi Ahilya Vishwavidyalaya (DAVV), Indore</div>
       <div class="edu-score">8.20 CGPA</div>
-      <div class="edu-year">2021 – 2024</div>
+      <div class="edu-year">Bachelor of Computer Applications · 2021 – 2024</div>
     </div>
   </div>
 
@@ -848,32 +962,35 @@
       <div style="font-size: 32px;">🏅</div>
       <div>
         <div class="edu-degree" style="font-size: 14px;">CBSE — All India Senior Secondary Certificate</div>
-        <div class="edu-inst">Science · 75% · 2019 – 2021</div>
+        <div class="edu-inst">Science · 75% · 2019 – 2021 · Central Board of Secondary Education</div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ── CONTACT ── -->
 <section id="contact">
   <div class="section-header" style="justify-content: center;">
     <span class="section-num">05 /</span>
     <h2>Let's <em>Connect</em></h2>
   </div>
-  <p class="contact-sub">Open to Flutter Developer roles, product work, and interesting engineering problems.</p>
+  <p class="contact-sub">Open to Flutter Developer roles, product work, remote opportunities, and interesting engineering problems.</p>
   <div class="contact-links">
-    <a href="mailto:satish.vishwakarma.it@gmail.com" class="contact-link">
+    <button class="contact-link copy-btn" data-copy="satish.vishwakarma.it@gmail.com" data-label="Email copied!">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
       satish.vishwakarma.it@gmail.com
-    </a>
-    <a href="tel:+918889344744" class="contact-link">
+      <span class="copy-icon">⎘</span>
+    </button>
+    <button class="contact-link copy-btn" data-copy="+918889344744" data-label="Number copied!">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.08 6.08l1.27-.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       +91 88893 44744
-    </a>
+      <span class="copy-icon">⎘</span>
+    </button>
     <a href="https://linkedin.com/in/satish-vishwakarma" target="_blank" class="contact-link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
       LinkedIn
     </a>
-    <a href="https://github.com/" target="_blank" class="contact-link">
+    <a href="https://github.com/satishvishwakarma24/" target="_blank" class="contact-link">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
       GitHub
     </a>
@@ -885,7 +1002,10 @@
   <span>Built with pure HTML/CSS · Hosted on GitHub Pages</span>
 </footer>
 
+<div class="copy-toast" id="toast"></div>
+
 <script>
+  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -895,8 +1015,28 @@
       }
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
   reveals.forEach(el => observer.observe(el));
+
+  // Copy to clipboard
+  const toast = document.getElementById('toast');
+  let toastTimer;
+
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const text = btn.dataset.copy;
+      const label = btn.dataset.label;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.classList.add('copied');
+        toast.textContent = '✓ ' + label;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toast.classList.remove('show');
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    });
+  });
 </script>
 </body>
 </html>
