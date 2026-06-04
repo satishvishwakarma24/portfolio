@@ -7,577 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #050505;
-      --surface: #0d0d0d;
-      --border: #1f1f1f;
-      --accent: #d9ff3f;
-      --accent2: #3fd0ff;
-      --text: #ffffff;
-      --muted: #fefefe;
-      --card: #121212;
-      --card-glow: rgba(217,255,63,0.08);
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: radial-gradient(circle at 20% 30%, #0f0f0f, #050505 60%);
-      color: var(--text);
-      font-family: 'DM Mono', monospace;
-      font-size: 14px;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 999;
-      opacity: 0.4;
-    }
-
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 48px;
-      border-bottom: 1px solid var(--border);
-      background: rgba(10,10,10,0.85);
-      backdrop-filter: blur(12px);
-    }
-
-    .nav-logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 18px;
-      letter-spacing: -0.5px;
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--text); }
-
-    #hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 120px 48px 80px;
-      position: relative;
-      border-bottom: 1px solid var(--border);
-      gap: 64px;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid rgba(232,255,71,0.3);
-      padding: 6px 14px;
-      border-radius: 2px;
-      margin-bottom: 36px;
-    }
-    .hero-tag::before {
-      content: '';
-      width: 6px; height: 6px;
-      background: var(--accent);
-      border-radius: 50%;
-      animation: blink 1.4s infinite;
-    }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
-
-    h1 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: clamp(48px, 6vw, 88px);
-      line-height: 0.95;
-      letter-spacing: -2px;
-      margin-bottom: 28px;
-    }
-
-    h1 .line2 {
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(240,240,240,0.35);
-    }
-
-    .hero-sub {
-      font-size: 15px;
-      color: var(--muted);
-      max-width: 460px;
-      line-height: 1.8;
-      margin-bottom: 40px;
-    }
-    .hero-sub span { color: var(--accent2); }
-
-    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 28px;
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      letter-spacing: 0.06em;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: all 0.2s;
-      cursor: pointer;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: #0a0a0a;
-      font-weight: 500;
-    }
-    .btn-primary:hover { background: #f5ff7a; transform: translateY(-1px); }
-    .btn-ghost {
-      border: 1px solid var(--border);
-      color: var(--muted);
-    }
-    .btn-ghost:hover { border-color: var(--text); color: var(--text); }
-
-    .hero-right { display: flex; flex-direction: column; gap: 16px; }
-
-    .stat-card {
-      background: linear-gradient(145deg, #121212, #0c0c0c);
-      border: 1px solid var(--border);
-      padding: 24px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-radius: 6px;
-      box-shadow: 0 0 0 transparent;
-      transition: all 0.25s ease;
-      animation: slideIn 0.6s ease both;
-    }
-
-    .stat-card:hover {
-      border-color: var(--accent);
-      box-shadow: 0 0 25px var(--card-glow);
-      transform: translateY(-3px);
-    }
-    .stat-card:nth-child(1) { animation-delay: 0.1s; }
-    .stat-card:nth-child(2) { animation-delay: 0.2s; }
-    .stat-card:nth-child(3) { animation-delay: 0.3s; }
-    .stat-card:nth-child(4) { animation-delay: 0.4s; }
-
-    @keyframes slideIn {
-      from { opacity:0; transform: translateX(24px); }
-      to   { opacity:1; transform: translateX(0); }
-    }
-
-    .stat-val {
-      font-family: 'Syne', sans-serif;
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--accent);
-    }
-
-    .stat-label {
-      font-size: 11px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .stat-icon {
-      font-size: 24px;
-      opacity: 1;
-    }
-
-    section { padding: 96px 48px; border-bottom: 1px solid var(--border); }
-
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-      margin-bottom: 56px;
-    }
-
-    .section-num {
-      font-size: 11px;
-      color: var(--accent);
-      letter-spacing: 0.1em;
-      font-weight: 500;
-    }
-
-    h2 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: clamp(28px, 3.5vw, 44px);
-      letter-spacing: -1px;
-    }
-
-    h2 em {
-      font-style: normal;
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(240,240,240,0.3);
-    }
-
-    /* Summary section */
-    .summary-block {
-      background: linear-gradient(145deg, #141414, #0f0f0f);
-      border: 1px solid var(--border);
-      border-left: 2px solid var(--accent);
-      padding: 28px 32px;
-      border-radius: 0 6px 6px 0;
-      font-size: 14px;
-      color: #bbb;
-      line-height: 1.9;
-      max-width: 820px;
-    }
-    .summary-block span { color: var(--accent); }
-
-    .timeline { position: relative; }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 1px;
-      background: linear-gradient(to bottom, var(--accent), transparent);
-    }
-
-    .exp-item {
-      padding-left: 36px;
-      margin-bottom: 56px;
-      position: relative;
-    }
-
-    .exp-item::before {
-      content: '';
-      position: absolute;
-      left: -4px; top: 6px;
-      width: 9px; height: 9px;
-      background: var(--accent);
-      border-radius: 50%;
-      box-shadow: 0 0 12px var(--accent);
-    }
-
-    .exp-meta {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-
-    .exp-company {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 18px;
-    }
-
-    .exp-role {
-      font-size: 11px;
-      background: rgba(71,201,255,0.1);
-      color: var(--accent2);
-      border: 1px solid rgba(71,201,255,0.2);
-      padding: 3px 10px;
-      border-radius: 2px;
-      letter-spacing: 0.06em;
-    }
-
-    .exp-period {
-      font-size: 11px;
-      color: var(--muted);
-      margin-left: auto;
-      letter-spacing: 0.06em;
-    }
-
-    .exp-projects { margin-top: 20px; display: flex; flex-direction: column; gap: 20px; }
-
-    .proj-block {
-      background: linear-gradient(145deg, #141414, #0f0f0f);
-      border: 1px solid var(--border);
-      border-left: 2px solid var(--accent);
-      padding: 20px 24px;
-      border-radius: 0 6px 6px 0;
-      transition: all 0.25s ease;
-    }
-
-    .proj-block:hover {
-      border-color: var(--accent);
-      box-shadow: 0 0 20px var(--card-glow);
-    }
-
-    .proj-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 12px;
-      letter-spacing: 0.02em;
-    }
-
-    .proj-block ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .proj-block li {
-      font-size: 13px;
-      color: #aaa;
-      padding-left: 16px;
-      position: relative;
-      line-height: 1.6;
-    }
-    .proj-block li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-size: 11px;
-    }
-
-    .highlight {
-      color: #ffffff;
-      font-weight: 700;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      text-decoration-thickness: 1.5px;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-    }
-
-    .skill-cat {
-      background: linear-gradient(145deg, #141414, #0f0f0f);
-      border: 1px solid var(--border);
-      padding: 28px;
-      border-radius: 6px;
-      transition: all 0.25s ease;
-    }
-
-    .skill-cat:hover {
-      border-color: rgba(232,255,71,0.3);
-      box-shadow: 0 0 18px var(--card-glow);
-    }
-
-    .skill-cat-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 16px;
-    }
-
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-
-    .tag {
-      font-size: 11px;
-      padding: 6px 12px;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      border-radius: 4px;
-      background: #0d0d0d;
-      transition: all 0.2s ease;
-    }
-    .tag:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: rgba(217,255,63,0.05);
-    }
-
-    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-    .edu-card {
-      background: linear-gradient(145deg, #141414, #0f0f0f);
-      border: 1px solid var(--border);
-      padding: 32px;
-      border-radius: 6px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      transition: all 0.25s ease;
-    }
-
-    .edu-card:hover {
-      border-color: rgba(232,255,71,0.3);
-      box-shadow: 0 0 18px var(--card-glow);
-    }
-
-    .edu-degree {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 16px;
-    }
-
-    .edu-inst { font-size: 13px; color: var(--muted); }
-
-    .edu-score {
-      font-size: 24px;
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      color: var(--accent);
-      margin-top: 8px;
-    }
-
-    .edu-year {
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-    }
-
-    #contact {
-      text-align: center;
-      padding: 96px 48px;
-    }
-
-    #contact h2 { margin-bottom: 12px; }
-
-    .contact-sub {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 40px;
-    }
-
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 28px;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      text-decoration: none;
-      border-radius: 2px;
-      font-size: 12px;
-      letter-spacing: 0.06em;
-      transition: all 0.2s;
-    }
-    .contact-link:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .contact-link svg { width: 16px; height: 16px; }
-
-    button.contact-link {
-      background: none;
-      cursor: pointer;
-      font-family: 'DM Mono', monospace;
-      position: relative;
-    }
-    .copy-icon {
-      margin-left: 6px;
-      font-size: 14px;
-      opacity: 0.5;
-      transition: opacity 0.2s;
-    }
-    button.contact-link:hover .copy-icon { opacity: 1; color: var(--accent); }
-    button.contact-link.copied {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-    .copy-toast {
-      position: fixed;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%) translateY(20px);
-      background: var(--accent);
-      color: #0a0a0a;
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      font-weight: 500;
-      padding: 10px 20px;
-      border-radius: 4px;
-      opacity: 0;
-      transition: all 0.25s ease;
-      pointer-events: none;
-      z-index: 9999;
-      letter-spacing: 0.06em;
-    }
-    .copy-toast.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    footer {
-      padding: 24px 48px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 768px) {
-      nav { padding: 16px 20px; }
-      .nav-links { display: none; }
-      #hero { grid-template-columns: 1fr; padding: 100px 20px 60px; gap: 32px; }
-      section { padding: 56px 20px; }
-      .edu-grid { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 8px; text-align: center; }
-      .exp-period { margin-left: 0; width: 100%; }
-      h1 {
-        font-size: 42px;
-        letter-spacing: -1px;
-        line-height: 1.05;
-        word-break: break-word;
-      }
-      h1 .line2 {
-        display: block;
-        font-size: 38px;
-        -webkit-text-stroke: 1px rgba(240,240,240,0.25);
-      }
-      .hero-sub { font-size: 13px; max-width: 100%; }
-    }
-
-    @keyframes fadeUp {
-      from { opacity:0; transform: translateY(30px); }
-      to   { opacity:1; transform: translateY(0); }
-    }
-    .hero-left > * { animation: fadeUp 0.7s ease both; }
-    .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
-    .hero-left > *:nth-child(2) { animation-delay: 0.25s; }
-    .hero-left > *:nth-child(3) { animation-delay: 0.4s; }
-    .hero-left > *:nth-child(4) { animation-delay: 0.55s; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -631,8 +61,8 @@
     </div>
     <div class="stat-card">
       <div>
-        <div class="stat-val">5+</div>
-        <div class="stat-label">Apps on Play Store</div>
+        <div class="stat-val">6+</div>
+        <div class="stat-label">Projects Built & Shipped</div>
       </div>
       <div class="stat-icon">🏆</div>
     </div>
@@ -829,6 +259,66 @@
             <li>Developed PDF scanning with multi-page capture, HD quality, auto-cropping, and image filters; designed smart file management with folder organization, grid/list views, full-text search, and one-tap import/export.</li>
             <li>Published with <span class="highlight">10,000+ downloads</span> on the Play Store.</li>
             <li><a href="https://play.google.com/store/apps/details?id=com.photoandvideoapps.fileSecurevault" target="_blank" style="color: var(--accent2); text-decoration:none;">Play Store ↗</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- WorkSync / Attendance Tracker -->
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <span class="exp-company">WorkSync</span>
+        <span class="exp-role">Flutter · Riverpod · Firebase · GoRouter · Geolocator</span>
+      </div>
+      <div class="exp-projects">
+        <div class="proj-block">
+          <div class="proj-title">◈ Location-Aware Attendance System</div>
+          <ul>
+            <li>Built a geofence-driven attendance app where employees can <span class="highlight">punch in/out only when physically inside a registered office radius</span>; real-time geofence status shows distance to nearest office when outside zone.</li>
+            <li>Implemented <span class="highlight">dual role system</span> (Employee + Super Admin): employees see their own punch history with color-coded IN/OUT session cards; admins manage office locations (CRUD with map picker) and monitor live organization-wide attendance log.</li>
+            <li>Integrated <span class="highlight">Google Maps SDK + OSM fallback</span> (via flutter_map) for interactive geofence setup; API key obfuscated with <code style="color:var(--accent2)">envied</code> and never committed to version control.</li>
+            <li>Multi-layer auth: <span class="highlight">Email/Password + Google Sign-In</span> with role-based route guards via GoRouter; Firestore security rules enforce cross-user write isolation.</li>
+            <li>Feature-first architecture — repositories own all Firestore access; Riverpod providers expose state to widgets; dark mode supported.</li>
+            <li><a href="https://github.com/satishvishwakarma24/attendance_tracker" target="_blank" style="color: var(--accent2); text-decoration:none;">GitHub ↗</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Age Calculator -->
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <span class="exp-company">Age Calc</span>
+        <span class="exp-role">Flutter · Provider · Freezed · SharedPreferences · Google Ads</span>
+      </div>
+      <div class="exp-projects">
+        <div class="proj-block">
+          <div class="proj-title">◈ Cosmic-Themed Age Calculator</div>
+          <ul>
+            <li>Developed a production-style, <span class="highlight">astronomy-inspired age utility app</span> combining practical tools (age in years/months/days, birthday countdown, zodiac sign) with a Solar System view that converts Earth age into <span class="highlight">planetary age equivalents</span>.</li>
+            <li>Built <span class="highlight">Members module</span> with full CRUD, pin/sort, and upcoming birthday highlighting; persisted DOB and member profiles locally via <span class="highlight">SharedPreferences</span>; Freezed-based immutable models for safe state updates.</li>
+            <li>Integrated <span class="highlight">Google Mobile Ads</span> (Banner, Interstitial, Rewarded, App Open) and multi-language support with generated localizations (<code style="color:var(--accent2)">flutter gen-l10n</code>); runtime locale switching via Settings screen.</li>
+            <li>Enforced portrait orientation; animated route transitions using <span class="highlight">SharedAxisTransition</span>; state-preserving tabs via <code style="color:var(--accent2)">IndexedStack</code>; custom cosmic design system in <code style="color:var(--accent2)">app_theme.dart</code>.</li>
+            <li><a href="https://github.com/satishvishwakarma24/age_calculator" target="_blank" style="color: var(--accent2); text-decoration:none;">GitHub ↗</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SARTHAK Social Jain Group -->
+    <div class="exp-item reveal">
+      <div class="exp-meta">
+        <span class="exp-company">SARTHAK</span>
+        <span class="exp-role">Flutter · Android · Firebase · Social Platform</span>
+      </div>
+      <div class="exp-projects">
+        <div class="proj-block">
+          <div class="proj-title">◈ Community Social Platform — Published on Play Store</div>
+          <ul>
+            <li>Built and published a <span class="highlight">community-driven social platform</span> (Social Jain Group) enabling users to connect, share posts/photos/updates, and participate in group discussions and events.</li>
+            <li>Features include <span class="highlight">group creation/joining based on interests</span>, event participation, live location sharing, and community interaction tools; data encrypted in transit with full deletion-on-request compliance.</li>
+            <li>Published on Play Store under developer account <span class="highlight">automatedappupload</span>; rated 18+.</li>
+            <li><a href="https://play.google.com/store/apps/details?id=com.automated.eventapp" target="_blank" style="color: var(--accent2); text-decoration:none;">Play Store ↗</a></li>
           </ul>
         </div>
       </div>
