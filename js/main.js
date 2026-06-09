@@ -218,6 +218,38 @@
     observer.observe(hero);
   }
 
+  function initUiFilters() {
+    const filters = document.querySelectorAll('.ui-filter');
+    const shots = document.querySelectorAll('.ui-shot');
+    const groups = document.querySelectorAll('.ui-platform-group');
+    if (!filters.length) return;
+
+    function applyFilter(platform) {
+      filters.forEach((btn) => {
+        const isActive = btn.dataset.filter === platform;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      shots.forEach((shot) => {
+        const show =
+          platform === 'all' || shot.dataset.platform === platform;
+        shot.classList.toggle('is-hidden', !show);
+      });
+
+      groups.forEach((group) => {
+        const groupPlatform = group.dataset.platformGroup;
+        const showGroup =
+          platform === 'all' || groupPlatform === platform;
+        group.classList.toggle('is-hidden', !showGroup);
+      });
+    }
+
+    filters.forEach((btn) => {
+      btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
     initCopyButtons();
@@ -226,5 +258,6 @@
     initStatCounters();
     initScrollProgress();
     initStickyCta();
+    initUiFilters();
   });
 })();
