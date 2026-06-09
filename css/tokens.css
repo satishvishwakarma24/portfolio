@@ -1,0 +1,13 @@
+:root {
+  --bg: #050505;
+  --surface: #0d0d0d;
+  --border: #1f1f1f;
+  --accent: #d9ff3f;
+  --accent2: #3fd0ff;
+  --text: #ffffff;
+  --muted: #9a9a9a;
+  --muted-strong: #c4c4c4;
+  --card: #121212;
+  --card-glow: rgba(217, 255, 63, 0.08);
+  --focus-ring: rgba(217, 255, 63, 0.6);
+}
