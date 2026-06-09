@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  background: radial-gradient(circle at 20% 30%, #0f0f0f, #050505 60%);
+  background: radial-gradient(circle at 20% 30%, var(--bg-gradient-start), var(--bg-gradient-end) 60%);
   color: var(--text);
   font-family: 'DM Mono', monospace;
   font-size: 14px;
@@ -28,7 +28,7 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 999;
-  opacity: 0.4;
+  opacity: var(--noise-opacity);
 }
 
 .skip-link {
@@ -38,7 +38,7 @@ body::before {
   z-index: 10000;
   padding: 12px 20px;
   background: var(--accent);
-  color: #0a0a0a;
+  color: var(--on-accent);
   font-family: 'DM Mono', monospace;
   font-size: 12px;
   font-weight: 500;
@@ -67,7 +67,7 @@ h1 {
 
 h1 .line2 {
   color: transparent;
-  -webkit-text-stroke: 1px rgba(240, 240, 240, 0.45);
+  -webkit-text-stroke: 1px var(--text-stroke);
 }
 
 @supports not (-webkit-text-stroke: 1px black) {
@@ -86,7 +86,7 @@ h2 {
 h2 em {
   font-style: normal;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(240, 240, 240, 0.3);
+  -webkit-text-stroke: 1px var(--text-stroke-subtle);
 }
 
 @keyframes blink {

@@ -218,6 +218,45 @@
     observer.observe(hero);
   }
 
+  function getStoredTheme() {
+    const stored = localStorage.getItem('theme');
+    if (stored === 'light' || stored === 'dark') return stored;
+    return window.matchMedia('(prefers-color-scheme: light)').matches
+      ? 'light'
+      : 'dark';
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+
+    const meta = document.getElementById('theme-color-meta');
+    if (meta) {
+      meta.setAttribute('content', theme === 'light' ? '#f8f8f6' : '#050505');
+    }
+
+    document.querySelectorAll('.theme-btn').forEach((btn) => {
+      const isActive = btn.dataset.themeValue === theme;
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+  }
+
+  function initTheme() {
+    const buttons = document.querySelectorAll('.theme-btn');
+    if (!buttons.length) return;
+
+    applyTheme(getStoredTheme());
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const theme = btn.dataset.themeValue;
+        if (theme === 'light' || theme === 'dark') {
+          applyTheme(theme);
+        }
+      });
+    });
+  }
+
   function initUiFilters() {
     const filters = document.querySelectorAll('.ui-filter');
     const shots = document.querySelectorAll('.ui-shot');
@@ -251,6 +290,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
     initScrollReveal();
     initCopyButtons();
     initMobileNav();
