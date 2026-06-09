@@ -10,9 +10,20 @@
 
   <script>
     (function () {
-      var stored = localStorage.getItem('theme');
-      var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-      var theme = stored === 'light' || stored === 'dark' ? stored : (prefersLight ? 'light' : 'dark');
+      var DEFAULT_THEME = 'dark';
+      var theme = DEFAULT_THEME;
+
+      try {
+        var stored = localStorage.getItem('theme');
+        if (stored === 'light' || stored === 'dark') {
+          theme = stored;
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+          theme = 'light';
+        }
+      } catch (e) {
+        theme = DEFAULT_THEME;
+      }
+
       document.documentElement.setAttribute('data-theme', theme);
       var meta = document.getElementById('theme-color-meta');
       if (meta) meta.setAttribute('content', theme === 'light' ? '#f8f8f6' : '#050505');
@@ -86,18 +97,22 @@
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li class="nav-theme-item">
-        <div class="theme-switch" role="group" aria-label="Color theme">
-          <button type="button" class="theme-btn" data-theme-value="light" aria-pressed="false" aria-label="Light theme" title="Light theme">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-          </button>
-          <button type="button" class="theme-btn" data-theme-value="dark" aria-pressed="true" aria-label="Dark theme" title="Dark theme">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </button>
-        </div>
+      <li class="nav-resume-mobile">
+        <a href="assets/static/SatishVishwakarma__Resume.pdf" class="nav-resume" download aria-label="Download resume PDF">Resume</a>
       </li>
-      <li><a href="assets/static/SatishVishwakarma__Resume.pdf" class="nav-resume" download aria-label="Download resume PDF">Resume</a></li>
     </ul>
+
+    <div class="nav-actions">
+      <div class="theme-switch" role="group" aria-label="Color theme">
+        <button type="button" class="theme-btn" data-theme-value="light" aria-pressed="false" aria-label="Light theme" title="Light theme">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <button type="button" class="theme-btn" data-theme-value="dark" aria-pressed="false" aria-label="Dark theme" title="Dark theme">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+      <a href="assets/static/SatishVishwakarma__Resume.pdf" class="nav-resume nav-resume-desktop" download aria-label="Download resume PDF">Resume</a>
+    </div>
   </nav>
 </header>
 
