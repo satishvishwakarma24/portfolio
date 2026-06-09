@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   function initScrollReveal() {
     const reveals = document.querySelectorAll('.reveal');
     if (!reveals.length) return;
@@ -90,11 +92,8 @@
 
     toggle.addEventListener('click', () => {
       const isOpen = toggle.getAttribute('aria-expanded') === 'true';
-      if (isOpen) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
+      if (isOpen) closeMenu();
+      else openMenu();
     });
 
     links.forEach((link) => link.addEventListener('click', closeMenu));
@@ -108,8 +107,10 @@
   }
 
   function initActiveNav() {
-    const sections = document.querySelectorAll('main section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll(
+      'main section[id]:not(#hero)'
+    );
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
     if (!sections.length || !navLinks.length) return;
 
     const linkMap = new Map();
@@ -135,10 +136,95 @@
     sections.forEach((section) => observer.observe(section));
   }
 
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    const prefix = el.dataset.prefix || '';
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    if (Number.isNaN(target)) return;
+
+    if (prefersReducedMotion) {
+      el.textContent = prefix + target + suffix;
+      return;
+    }
+
+    const duration = 1200;
+    const start = performance.now();
+
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = target * eased;
+      el.textContent =
+        prefix +
+        (decimals ? value.toFixed(decimals) : Math.floor(value)) +
+        suffix;
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = prefix + target + suffix;
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  function initStatCounters() {
+    const counters = document.querySelectorAll('.stat-val[data-count]');
+    if (!counters.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    counters.forEach((el) => observer.observe(el));
+  }
+
+  function initScrollProgress() {
+    const bar = document.querySelector('.scroll-progress');
+    if (!bar) return;
+
+    function update() {
+      const scrollTop = window.scrollY;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      bar.style.width = pct + '%';
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+
+  function initStickyCta() {
+    const bar = document.querySelector('.sticky-cta');
+    const hero = document.getElementById('hero');
+    if (!bar || !hero) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const show = !entry.isIntersecting;
+        bar.classList.toggle('visible', show);
+        document.body.classList.toggle('has-sticky-cta', show);
+      },
+      { threshold: 0, rootMargin: '0px' }
+    );
+
+    observer.observe(hero);
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
     initCopyButtons();
     initMobileNav();
     initActiveNav();
+    initStatCounters();
+    initScrollProgress();
+    initStickyCta();
   });
 })();

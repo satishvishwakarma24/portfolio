@@ -10,4 +10,9 @@
   --card: #121212;
   --card-glow: rgba(217, 255, 63, 0.08);
   --focus-ring: rgba(217, 255, 63, 0.6);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 0.2s;
+  --duration-normal: 0.35s;
+  --stagger-step: 0.08s;
+  --header-h: 73px;
 }

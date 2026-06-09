@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Satish Vishwakarma — Flutter Developer building cross-platform apps for Android, iOS, and Web. 2+ years experience, 10K+ Play Store downloads." />
+  <meta name="description" content="Satish Vishwakarma — Flutter Developer building enterprise cross-platform apps. 2+ years experience, SAP integrations, 10K+ Play Store downloads." />
   <meta name="author" content="Satish Vishwakarma" />
   <meta name="theme-color" content="#050505" />
   <title>Satish Vishwakarma — Flutter Developer</title>
@@ -14,14 +14,14 @@
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Satish Vishwakarma — Flutter Developer" />
-  <meta property="og:description" content="Flutter Developer from Indore, India. Building scalable cross-platform apps for Android, iOS, and Web with 2+ years experience and 10K+ Play Store downloads." />
+  <meta property="og:description" content="Flutter Developer · Enterprise mobile · 10K+ Play Store downloads · SAP &amp; cross-platform delivery." />
   <meta property="og:image" content="https://satishvishwakarma24.github.io/portfolio/assets/images/og-preview.png" />
   <meta property="og:url" content="https://satishvishwakarma24.github.io/portfolio/" />
   <meta property="og:site_name" content="Satish Vishwakarma Portfolio" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Satish Vishwakarma — Flutter Developer" />
-  <meta name="twitter:description" content="Flutter Developer building cross-platform apps for Android, iOS, and Web." />
+  <meta name="twitter:description" content="Flutter Developer building enterprise cross-platform apps for Android, iOS, and Web." />
   <meta name="twitter:image" content="https://satishvishwakarma24.github.io/portfolio/assets/images/og-preview.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -55,6 +55,7 @@
 <a href="#main" class="skip-link">Skip to main content</a>
 
 <header class="site-header">
+  <div class="scroll-progress" aria-hidden="true"></div>
   <nav class="site-nav" aria-label="Primary navigation">
     <a href="#" class="nav-logo" aria-label="Satish Vishwakarma — Home">
       <img src="assets/icons/logo.svg" alt="" width="36" height="36" />
@@ -68,12 +69,13 @@
     </button>
 
     <ul class="nav-links" id="nav-menu">
+      <li><a href="#selected-work">Work</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="assets/static/SatishVishwakarma__Resume.pdf" class="nav-resume" download aria-label="Download resume PDF">Resume</a></li>
     </ul>
   </nav>
 </header>
@@ -82,32 +84,37 @@
 
 <!-- ── HERO ── -->
 <section id="hero">
-  <div class="hero-left">
-    <div class="hero-tag">Open to Remote · Available Now</div>
-    <h1>
-      SATISH<br>
-      <span class="line2">VISHWAKARMA</span>
-    </h1>
-    <p class="hero-sub">
-      Flutter Developer from <span>Indore, India</span> · Building scalable cross-platform apps for <span>Android, iOS, and Web</span> with Flutter, Dart, clean architecture, and modern state management.
-    </p>
-    <div class="hero-cta">
-      <a href="mailto:satish.vishwakarma.it@gmail.com" class="btn btn-primary">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
-        Get in touch
-      </a>
-      <a href="https://linkedin.com/in/satish-vishwakarma" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">LinkedIn ↗</a>
-      <a href="https://github.com/satishvishwakarma24/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">GitHub ↗</a>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag">Open to Remote · Available Now</div>
+      <p class="hero-hook">Flutter Developer · Enterprise mobile · 10K+ Play Store downloads</p>
+      <h1>
+        SATISH<br>
+        <span class="line2">VISHWAKARMA</span>
+      </h1>
+      <p class="hero-sub">
+        Building scalable cross-platform apps for <span>Android, iOS, and Web</span> from <span>Indore, India</span> — Flutter, clean architecture, and production-ready delivery for enterprise and consumer products.
+      </p>
+      <div class="hero-cta">
+        <a href="assets/static/SatishVishwakarma__Resume.pdf" class="btn btn-primary" download>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Resume
+        </a>
+        <a href="#selected-work" class="btn btn-ghost">View Projects</a>
+        <a href="mailto:satish.vishwakarma.it@gmail.com" class="btn btn-ghost">Email</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-avatar-wrap">
+        <img src="assets/images/avatar.png" alt="Satish Vishwakarma" class="hero-avatar" width="180" height="180" fetchpriority="high" />
+      </div>
     </div>
   </div>
 
-  <div class="hero-right">
-    <div class="hero-avatar-wrap">
-      <img src="assets/images/avatar.png" alt="Satish Vishwakarma" class="hero-avatar" width="140" height="140" />
-    </div>
+  <div class="stat-strip" aria-label="Career highlights">
     <div class="stat-card">
       <div>
-        <div class="stat-val">2+</div>
+        <div class="stat-val" data-count="2" data-suffix="+">0</div>
         <div class="stat-label">Years Experience</div>
       </div>
       <div class="stat-icon" aria-hidden="true">
@@ -116,17 +123,17 @@
     </div>
     <div class="stat-card">
       <div>
-        <div class="stat-val">150+</div>
-        <div class="stat-label">REST APIs Integrated</div>
+        <div class="stat-val" data-count="30" data-suffix="+">0</div>
+        <div class="stat-label">API Integrations Shipped</div>
       </div>
       <div class="stat-icon" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>
       </div>
     </div>
     <div class="stat-card">
       <div>
-        <div class="stat-val">6+</div>
-        <div class="stat-label">Projects Built &amp; Shipped</div>
+        <div class="stat-val" data-count="6" data-suffix="+">0</div>
+        <div class="stat-label">Projects Shipped</div>
       </div>
       <div class="stat-icon" aria-hidden="true">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
@@ -134,8 +141,8 @@
     </div>
     <div class="stat-card">
       <div>
-        <div class="stat-val">10K+</div>
-        <div class="stat-label">Downloads on Play Store</div>
+        <div class="stat-val" data-count="10" data-suffix="K+">0</div>
+        <div class="stat-label">Play Store Downloads</div>
       </div>
       <div class="stat-icon" aria-hidden="true">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
@@ -144,14 +151,89 @@
   </div>
 </section>
 
-<!-- ── ABOUT / SUMMARY ── -->
+<!-- ── SELECTED WORK ── -->
+<section id="selected-work">
+  <div class="section-header">
+    <span class="section-num">★ /</span>
+    <h2>Selected <em>Work</em></h2>
+  </div>
+
+  <div class="selected-grid">
+    <article class="work-card work-card--featured reveal">
+      <div class="work-card-media">
+        <img src="assets/screenshots/eicher_siteone/web/dashboard.png" alt="Eicher SiteOne web dashboard showing vehicle service management" width="800" height="500" loading="lazy" />
+      </div>
+      <div class="work-card-body">
+        <div class="work-card-tag">Enterprise · Flutter · SAP</div>
+        <h3 class="work-card-title">Eicher SiteOne</h3>
+        <p class="work-card-hook">Cross-platform vehicle service platform for construction and mining — Android, iOS, Web, and tablet.</p>
+        <div class="work-card-metrics">
+          <span class="metric-pill">500+ technicians</span>
+          <span class="metric-pill">7-stage job lifecycle</span>
+          <span class="metric-pill">SAP integration</span>
+        </div>
+        <div class="work-card-chips">
+          <span class="chip">Flutter</span>
+          <span class="chip">PostgreSQL</span>
+          <span class="chip">Active Directory</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://play.google.com/store/apps/details?id=com.eicher.siteone" target="_blank" rel="noopener noreferrer" class="link-external">Play Store ↗</a>
+          <a href="https://dev-vecvsitesupport.siplsolutions.com" target="_blank" rel="noopener noreferrer" class="link-external">Web App ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="work-card reveal">
+      <div class="work-card-media">
+        <img src="assets/screenshots/filesecure/app-preview.png" alt="FileSecure document scanner and encrypted vault app" width="400" height="700" loading="lazy" />
+      </div>
+      <div class="work-card-body">
+        <div class="work-card-tag">Consumer · Play Store</div>
+        <h3 class="work-card-title">FileSecure</h3>
+        <p class="work-card-hook">AES-256 encrypted document scanner and vault with biometric auth.</p>
+        <div class="work-card-metrics">
+          <span class="metric-pill">10K+ downloads</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://play.google.com/store/apps/details?id=com.photoandvideoapps.fileSecurevault" target="_blank" rel="noopener noreferrer" class="link-external">Play Store ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="work-card reveal">
+      <div class="work-card-media">
+        <img src="assets/screenshots/work_sync/user-dashboard.png" alt="WorkSync geofence attendance app employee dashboard" width="400" height="700" loading="lazy" />
+      </div>
+      <div class="work-card-body">
+        <div class="work-card-tag">Open Source · Riverpod</div>
+        <h3 class="work-card-title">WorkSync</h3>
+        <p class="work-card-hook">Geofence-driven attendance with dual admin/employee roles and map-based office setup.</p>
+        <div class="work-card-chips">
+          <span class="chip">Firebase</span>
+          <span class="chip">GoRouter</span>
+          <span class="chip">Google Maps</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://github.com/satishvishwakarma24/attendance_tracker" target="_blank" rel="noopener noreferrer" class="link-external">GitHub ↗</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="section-cta reveal">
+    <a href="#projects" class="btn btn-ghost">View all projects →</a>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
 <section id="about">
   <div class="section-header">
     <span class="section-num">00 /</span>
     <h2>Professional <em>Summary</em></h2>
   </div>
   <div class="summary-block reveal">
-    Results-driven Flutter Developer with <span>2+ years of experience</span> building high-performance, cross-platform mobile applications for Android and iOS. Proven ability to architect scalable solutions using <span>Flutter, Dart</span>, and modern state management (GetX, Riverpod, Provider), with a strong focus on pixel-perfect UI/UX, clean architecture, and production-ready delivery. Experienced collaborating with design, backend, and QA teams in fast-paced, <span>Agile/Scrum</span> environments. Rapidly promoted from Intern to Associate Software Engineer within one year at Softude, consistently delivering complex features on schedule.
+    Results-driven Flutter Developer with <span>2+ years of experience</span> shipping cross-platform apps for Android, iOS, and Web. I architect scalable solutions with <span>Flutter, Dart</span>, and modern state management (Riverpod, GetX, Provider), focusing on pixel-perfect UI, clean architecture, and production delivery. Promoted from Intern to Associate Software Engineer in <span>12 months</span> at Softude while leading features across enterprise mobile projects.
   </div>
 </section>
 
@@ -174,10 +256,9 @@
         <div class="proj-block">
           <div class="proj-title">◈ Production Flutter Development</div>
           <ul>
-            <li>Promoted from Intern → Graduate Engineer Trainee → Associate Software Engineer in under <span class="highlight">12 months</span>, outpacing the standard 18-month progression track.</li>
-            <li>Collaborated daily with UI/UX designers, backend engineers, and QA teams to translate designs into pixel-perfect, responsive Flutter UIs across phone and tablet form factors.</li>
-            <li>Delivered end-to-end sprint features in Agile/Scrum cycles, consistently meeting sprint deadlines across <span class="highlight">3 concurrent enterprise mobile projects</span>.</li>
-            <li>Mentored <span class="highlight">2 junior Flutter developers</span> through code reviews and pair-programming sessions, accelerating team output and ensuring on-schedule delivery of production features.</li>
+            <li>Promoted Intern → Associate in <span class="highlight">12 months</span>; delivered sprint features across <span class="highlight">3 concurrent enterprise mobile projects</span>.</li>
+            <li>Built pixel-perfect Flutter UIs with design, backend, and QA teams across phone and tablet form factors.</li>
+            <li>Mentored <span class="highlight">2 junior Flutter developers</span> via code reviews and pair programming.</li>
           </ul>
         </div>
       </div>
@@ -193,9 +274,9 @@
         <div class="proj-block">
           <div class="proj-title">◈ Flutter Components &amp; State Management</div>
           <ul>
-            <li>Engineered a reusable Flutter component library (<span class="highlight">30+ custom widgets</span>) aligned with modern UI/UX practices, reducing new-feature development effort and enforcing design consistency.</li>
-            <li>Integrated <span class="highlight">15+ REST API endpoints</span> with error-handling, loading states, and retry logic using Dio; implemented reactive state management with <span class="highlight">GetX and Provider</span> for real-time, responsive UIs.</li>
-            <li>Profiled production builds with Flutter DevTools, improving average frame rate consistency across core application modules.</li>
+            <li>Built a reusable component library (<span class="highlight">30+ custom widgets</span>) cutting new-feature effort across the team.</li>
+            <li>Integrated <span class="highlight">15+ REST endpoints</span> per release with Dio, error handling, and GetX/Provider state.</li>
+            <li>Profiled builds with Flutter DevTools to improve frame-rate consistency in production modules.</li>
           </ul>
         </div>
       </div>
@@ -211,9 +292,8 @@
         <div class="proj-block">
           <div class="proj-title">◈ Backend Support &amp; Collaboration</div>
           <ul>
-            <li>Designed and deployed RESTful backend services using <span class="highlight">Node.js and MongoDB</span>, establishing CRUD endpoints consumed by the Flutter frontend team.</li>
-            <li>Enforced Git branching strategy (feature/release) and pull-request review workflows, improving team-wide code quality.</li>
-            <li>Debugged and resolved <span class="highlight">10+ critical issues</span> within the first four weeks, directly enabling a stable MVP release.</li>
+            <li>Deployed REST services with <span class="highlight">Node.js and MongoDB</span> consumed by the Flutter frontend team.</li>
+            <li>Resolved <span class="highlight">10+ critical issues</span> in four weeks, enabling a stable MVP release.</li>
           </ul>
         </div>
       </div>
@@ -229,9 +309,8 @@
         <div class="proj-block">
           <div class="proj-title">◈ Training &amp; Full-Stack Foundations</div>
           <ul>
-            <li>Completed a <span class="highlight">14-month program</span> covering Java, JavaScript, and the full MERN stack (MongoDB, Express.js, React.js, Node.js) with project-based assessments and mentored code reviews.</li>
-            <li>Built and shipped <span class="highlight">3 full-stack applications</span> including an e-commerce platform and SPA, handling REST API design through to responsive frontend implementation.</li>
-            <li>Applied <span class="highlight">Microservice and MVC</span> architecture patterns, improving codebase modularity and reducing feature delivery time across collaborative team projects.</li>
+            <li>Completed a <span class="highlight">14-month MERN stack program</span> with mentored code reviews and project assessments.</li>
+            <li>Shipped <span class="highlight">3 full-stack apps</span> including e-commerce and SPA projects end to end.</li>
           </ul>
         </div>
       </div>
@@ -247,9 +326,8 @@
         <div class="proj-block">
           <div class="proj-title">◈ Native Android &amp; Flutter Development</div>
           <ul>
-            <li>Developed native Android and Flutter applications with responsive UI, state management, and REST API integration for scalable cross-platform mobile solutions.</li>
-            <li>Integrated device-native features including <span class="highlight">camera, GPS, local storage, push notifications, file handling</span>, and runtime permissions using Android SDK and Flutter plugins.</li>
-            <li>Collaborated on debugging, testing, and deploying mobile applications following <span class="highlight">MVC architecture</span>, clean coding standards, and Git-based version control workflows.</li>
+            <li>Built cross-platform apps with REST APIs, camera, GPS, push notifications, and local storage integrations.</li>
+            <li>Followed MVC architecture, clean coding standards, and Git-based release workflows.</li>
           </ul>
         </div>
       </div>
@@ -258,135 +336,118 @@
   </div>
 </section>
 
-<!-- ── PROJECTS ── -->
+<!-- ── ALL PROJECTS (case-study grid) ── -->
 <section id="projects">
   <div class="section-header">
     <span class="section-num">02 /</span>
-    <h2>Featured <em>Projects</em></h2>
+    <h2>All <em>Projects</em></h2>
   </div>
+  <p class="projects-subtitle reveal">Case studies across enterprise, consumer, and open-source — problem, stack, and measurable outcome.</p>
 
-  <div class="timeline">
+  <div class="projects-grid">
 
-    <div class="exp-item reveal">
-      <div class="exp-meta">
-        <span class="exp-company">Eicher SiteOne</span>
-        <span class="exp-role">Flutter · Node.js · PostgreSQL · SAP</span>
+    <article class="project-card reveal" id="project-eicher">
+      <div class="project-card-media">
+        <img src="assets/screenshots/eicher_siteone/mobile/service-ticket.png" alt="Eicher SiteOne mobile service ticket screen" width="400" height="800" loading="lazy" />
       </div>
-      <div class="exp-projects">
-        <div class="proj-block">
-          <div class="proj-title">◈ Enterprise Cross-Platform Vehicle Service Platform</div>
-          <ul>
-            <li>Architected and delivered a cross-platform (<span class="highlight">Android, iOS, Web, Tablet</span>) vehicle service management app for the construction and mining sectors; implemented a <span class="highlight">7-stage job card lifecycle (T0–T6)</span> with real-time customer approvals, cost summaries, and automated invoice generation.</li>
-            <li>Designed highly responsive, adaptive Flutter UIs following Material Design guidelines, ensuring consistent UX across mobile and tablet form factors used by <span class="highlight">500+ field technicians</span>.</li>
-            <li>Integrated <span class="highlight">SAP (DBM), Telematics, and Predictive Diagnostics</span> for auto job card generation; secured the platform with role-based access control via Active Directory and SAP NetWeaver Gateway.</li>
-            <li class="proj-links">
-              <a href="https://play.google.com/store/apps/details?id=com.eicher.siteone" target="_blank" rel="noopener noreferrer" class="link-external" aria-label="Eicher SiteOne on Play Store">Play Store ↗</a>
-              <a href="https://dev-vecvsitesupport.siplsolutions.com" target="_blank" rel="noopener noreferrer" class="link-external" aria-label="Eicher SiteOne Web App">Web App ↗</a>
-            </li>
-          </ul>
+      <div class="project-card-body">
+        <div class="project-card-header">
+          <span class="project-card-name">Eicher SiteOne</span>
+          <span class="project-card-role">Flutter · SAP · PostgreSQL</span>
+        </div>
+        <ul>
+          <li>7-stage job card lifecycle (T0–T6) with approvals, cost summaries, and invoicing for <span class="highlight">500+ field technicians</span>.</li>
+          <li>SAP DBM, telematics, and Active Directory RBAC across Android, iOS, Web, and tablet.</li>
+        </ul>
+        <div class="proj-links">
+          <a href="https://play.google.com/store/apps/details?id=com.eicher.siteone" target="_blank" rel="noopener noreferrer" class="link-external">Play Store ↗</a>
+          <a href="https://dev-vecvsitesupport.siplsolutions.com" target="_blank" rel="noopener noreferrer" class="link-external">Web App ↗</a>
         </div>
       </div>
-    </div>
+    </article>
 
-    <div class="exp-item reveal">
-      <div class="exp-meta">
-        <span class="exp-company">Voice Buddy</span>
-        <span class="exp-role">Flutter · GetX · Firebase · Agora RTC</span>
+    <article class="project-card reveal">
+      <div class="project-card-media">
+        <img src="assets/screenshots/filesecure/app-preview.png" alt="FileSecure app interface" width="400" height="800" loading="lazy" />
       </div>
-      <div class="exp-projects">
-        <div class="proj-block">
-          <div class="proj-title">◈ Real-Time Voice Calling Platform</div>
-          <ul>
-            <li>Built a production-grade, cross-platform voice calling app featuring <span class="highlight">topic-based matchmaking</span>; integrated <span class="highlight">Agora RTC Engine</span> for sub-200ms, high-fidelity calls with mute and speaker controls on both Android and iOS.</li>
-            <li>Implemented multi-layer authentication (<span class="highlight">Google Sign-In, Firebase Auth, JWT</span>) with AES-encrypted local storage; architected reactive state with <span class="highlight">GetX MVC</span> and Dio for all API interactions.</li>
-            <li>Shipped bilingual (English/Hindi) localization, fully responsive dark UI via flutter_screenutil, and a <span class="highlight">4-step onboarding flow</span> ensuring seamless UX across 5+ device sizes.</li>
-          </ul>
+      <div class="project-card-body">
+        <div class="project-card-header">
+          <span class="project-card-name">FileSecure</span>
+          <span class="project-card-role">Flutter · AES-256 · Biometrics</span>
+        </div>
+        <ul>
+          <li>Document scanner and encrypted vault with biometric and PIN auth; <span class="highlight">10,000+ Play Store downloads</span>.</li>
+          <li>Multi-page PDF capture, HD filters, folder organization, and one-tap import/export.</li>
+        </ul>
+        <div class="proj-links">
+          <a href="https://play.google.com/store/apps/details?id=com.photoandvideoapps.fileSecurevault" target="_blank" rel="noopener noreferrer" class="link-external">Play Store ↗</a>
         </div>
       </div>
-    </div>
+    </article>
 
-    <div class="exp-item reveal">
-      <div class="exp-meta">
-        <span class="exp-company">FileSecure</span>
-        <span class="exp-role">Flutter · Android · Biometric Auth · AES-256</span>
+    <article class="project-card reveal">
+      <div class="project-card-media">
+        <img src="assets/screenshots/work_sync/admin-dashboard.png" alt="WorkSync admin attendance dashboard" width="400" height="800" loading="lazy" />
       </div>
-      <div class="exp-projects">
-        <div class="proj-block">
-          <div class="proj-title">◈ Document Scanner &amp; Secure Vault</div>
-          <ul>
-            <li>Built an all-in-one document scanner and encrypted vault app with <span class="highlight">AES-256 encryption</span> and stealth mode; implemented <span class="highlight">biometric (fingerprint &amp; face recognition)</span> and PIN-based authentication for secure access.</li>
-            <li>Developed PDF scanning with multi-page capture, HD quality, auto-cropping, and image filters; designed smart file management with folder organization, grid/list views, full-text search, and one-tap import/export.</li>
-            <li>Published with <span class="highlight">10,000+ downloads</span> on the Play Store.</li>
-            <li class="proj-links">
-              <a href="https://play.google.com/store/apps/details?id=com.photoandvideoapps.fileSecurevault" target="_blank" rel="noopener noreferrer" class="link-external" aria-label="FileSecure on Play Store">Play Store ↗</a>
-            </li>
-          </ul>
+      <div class="project-card-body">
+        <div class="project-card-header">
+          <span class="project-card-name">WorkSync</span>
+          <span class="project-card-role">Riverpod · Firebase · Maps</span>
+        </div>
+        <ul>
+          <li>Geofence punch in/out with employee history and admin office CRUD via map picker.</li>
+          <li>Feature-first architecture, GoRouter guards, and Firestore security rules.</li>
+        </ul>
+        <div class="proj-links">
+          <a href="https://github.com/satishvishwakarma24/attendance_tracker" target="_blank" rel="noopener noreferrer" class="link-external">GitHub ↗</a>
         </div>
       </div>
-    </div>
+    </article>
 
-    <div class="exp-item reveal">
-      <div class="exp-meta">
-        <span class="exp-company">SARTHAK</span>
-        <span class="exp-role">Flutter · Android · Firebase · Social Platform</span>
+    <article class="project-card reveal">
+      <div class="project-card-body">
+        <div class="project-card-header">
+          <span class="project-card-name">Voice Buddy</span>
+          <span class="project-card-role">GetX · Agora RTC · Firebase</span>
+        </div>
+        <ul>
+          <li>Topic-based voice matchmaking with <span class="highlight">sub-200ms Agora RTC</span> calls on Android and iOS.</li>
+          <li>Google Sign-In, Firebase Auth, JWT, and bilingual (EN/HI) localization.</li>
+        </ul>
       </div>
-      <div class="exp-projects">
-        <div class="proj-block">
-          <div class="proj-title">◈ Community Social Platform — Published on Play Store</div>
-          <ul>
-            <li>Built and published a <span class="highlight">community-driven social platform</span> (Social Jain Group) enabling users to connect, share posts/photos/updates, and participate in group discussions and events.</li>
-            <li>Features include <span class="highlight">group creation/joining based on interests</span>, event participation, live location sharing, and community interaction tools; data encrypted in transit with full deletion-on-request compliance.</li>
-            <li>Published on Play Store under developer account <span class="highlight">automatedappupload</span>; rated 18+.</li>
-            <li class="proj-links">
-              <a href="https://play.google.com/store/apps/details?id=com.automated.eventapp" target="_blank" rel="noopener noreferrer" class="link-external" aria-label="SARTHAK on Play Store">Play Store ↗</a>
-            </li>
-          </ul>
+    </article>
+
+    <article class="project-card reveal">
+      <div class="project-card-body">
+        <div class="project-card-header">
+          <span class="project-card-name">SARTHAK</span>
+          <span class="project-card-role">Flutter · Firebase · Social</span>
+        </div>
+        <ul>
+          <li>Community social platform with groups, events, and live location sharing.</li>
+          <li>Published on Play Store with encrypted transit and deletion-on-request compliance.</li>
+        </ul>
+        <div class="proj-links">
+          <a href="https://play.google.com/store/apps/details?id=com.automated.eventapp" target="_blank" rel="noopener noreferrer" class="link-external">Play Store ↗</a>
         </div>
       </div>
-    </div>
+    </article>
 
-    <div class="exp-item reveal">
-      <div class="exp-meta">
-        <span class="exp-company">WorkSync</span>
-        <span class="exp-role">Flutter · Riverpod · Firebase · GoRouter · Geolocator</span>
-      </div>
-      <div class="exp-projects">
-        <div class="proj-block">
-          <div class="proj-title">◈ Location-Aware Attendance System</div>
-          <ul>
-            <li>Built a geofence-driven attendance app where employees can <span class="highlight">punch in/out only when physically inside a registered office radius</span>; real-time geofence status shows distance to nearest office when outside zone.</li>
-            <li>Implemented <span class="highlight">dual role system</span> (Employee + Super Admin): employees see their own punch history with color-coded IN/OUT session cards; admins manage office locations (CRUD with map picker) and monitor live organization-wide attendance log.</li>
-            <li>Integrated <span class="highlight">Google Maps SDK + OSM fallback</span> (via flutter_map) for interactive geofence setup; API key obfuscated with <code class="code-inline">envied</code> and never committed to version control.</li>
-            <li>Multi-layer auth: <span class="highlight">Email/Password + Google Sign-In</span> with role-based route guards via GoRouter; Firestore security rules enforce cross-user write isolation.</li>
-            <li>Feature-first architecture — repositories own all Firestore access; Riverpod providers expose state to widgets; dark mode supported.</li>
-            <li class="proj-links">
-              <a href="https://github.com/satishvishwakarma24/attendance_tracker" target="_blank" rel="noopener noreferrer" class="link-external" aria-label="WorkSync on GitHub">GitHub ↗</a>
-            </li>
-          </ul>
+    <article class="project-card reveal">
+      <div class="project-card-body">
+        <div class="project-card-header">
+          <span class="project-card-name">Age Calculator</span>
+          <span class="project-card-role">Provider · Freezed · l10n</span>
+        </div>
+        <ul>
+          <li>Cosmic-themed age utility with planetary age view, members CRUD, and birthday countdown.</li>
+          <li>Google Mobile Ads, multi-language support, and custom design system.</li>
+        </ul>
+        <div class="proj-links">
+          <a href="https://github.com/satishvishwakarma24/age_calculator" target="_blank" rel="noopener noreferrer" class="link-external">GitHub ↗</a>
         </div>
       </div>
-    </div>
-
-    <div class="exp-item reveal">
-      <div class="exp-meta">
-        <span class="exp-company">Age Calculator</span>
-        <span class="exp-role">Flutter · Provider · Freezed · SharedPreferences · Google Ads</span>
-      </div>
-      <div class="exp-projects">
-        <div class="proj-block">
-          <div class="proj-title">◈ Cosmic-Themed Age Calculator</div>
-          <ul>
-            <li>Developed a production-style, <span class="highlight">astronomy-inspired age utility app</span> combining practical tools (age in years/months/days, birthday countdown, zodiac sign) with a Solar System view that converts Earth age into <span class="highlight">planetary age equivalents</span>.</li>
-            <li>Built <span class="highlight">Members module</span> with full CRUD, pin/sort, and upcoming birthday highlighting; persisted DOB and member profiles locally via <span class="highlight">SharedPreferences</span>; Freezed-based immutable models for safe state updates.</li>
-            <li>Integrated <span class="highlight">Google Mobile Ads</span> (Banner, Interstitial, Rewarded, App Open) and multi-language support with generated localizations (<code class="code-inline">flutter gen-l10n</code>); runtime locale switching via Settings screen.</li>
-            <li>Enforced portrait orientation; animated route transitions using <span class="highlight">SharedAxisTransition</span>; state-preserving tabs via <code class="code-inline">IndexedStack</code>; custom cosmic design system in <code class="code-inline">app_theme.dart</code>.</li>
-            <li class="proj-links">
-              <a href="https://github.com/satishvishwakarma24/age_calculator" target="_blank" rel="noopener noreferrer" class="link-external" aria-label="Age Calculator on GitHub">GitHub ↗</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    </article>
 
   </div>
 </section>
@@ -408,7 +469,6 @@
         <span class="tag">Responsive UI</span>
         <span class="tag">Material Design</span>
         <span class="tag">flutter_screenutil</span>
-        <span class="tag">Adaptive Layouts</span>
       </div>
     </div>
     <div class="skill-cat reveal">
@@ -417,9 +477,8 @@
         <span class="tag">Clean Architecture</span>
         <span class="tag">MVC</span>
         <span class="tag">MVVM</span>
-        <span class="tag">Microservices</span>
-        <span class="tag">OOP</span>
-        <span class="tag">SOLID Principles</span>
+        <span class="tag">SOLID</span>
+        <span class="tag">Feature-first</span>
       </div>
     </div>
     <div class="skill-cat reveal">
@@ -440,7 +499,6 @@
         <span class="tag">Firebase</span>
         <span class="tag">MongoDB</span>
         <span class="tag">PostgreSQL</span>
-        <span class="tag">JWT</span>
       </div>
     </div>
     <div class="skill-cat reveal">
@@ -449,41 +507,28 @@
         <span class="tag">Firebase Auth</span>
         <span class="tag">Google Sign-In</span>
         <span class="tag">JWT</span>
-        <span class="tag">AES-256 Encryption</span>
+        <span class="tag">AES-256</span>
         <span class="tag">Biometric Auth</span>
       </div>
     </div>
     <div class="skill-cat reveal">
-      <div class="skill-cat-title">Languages</div>
+      <div class="skill-cat-title">Integrations</div>
       <div class="skill-tags">
-        <span class="tag">Dart</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">Java</span>
-        <span class="tag">Core Java</span>
+        <span class="tag">Agora RTC</span>
+        <span class="tag">SAP (DBM)</span>
+        <span class="tag">Google Maps</span>
+        <span class="tag">Push Notifications</span>
+        <span class="tag">Telematics</span>
       </div>
     </div>
     <div class="skill-cat reveal">
       <div class="skill-cat-title">Tools &amp; DevOps</div>
       <div class="skill-tags">
-        <span class="tag">Android Studio</span>
-        <span class="tag">VS Code</span>
         <span class="tag">Git / GitHub</span>
-        <span class="tag">Postman</span>
         <span class="tag">CI/CD</span>
-        <span class="tag">Agile / Scrum</span>
+        <span class="tag">Android Studio</span>
         <span class="tag">Flutter DevTools</span>
-      </div>
-    </div>
-    <div class="skill-cat reveal">
-      <div class="skill-cat-title">Integrations &amp; AI Tools</div>
-      <div class="skill-tags">
-        <span class="tag">Agora RTC</span>
-        <span class="tag">SAP (DBM)</span>
-        <span class="tag">Telematics</span>
-        <span class="tag">Push Notifications</span>
-        <span class="tag">Cursor AI</span>
-        <span class="tag">Claude</span>
-        <span class="tag">GitHub Copilot</span>
+        <span class="tag">Agile / Scrum</span>
       </div>
     </div>
   </div>
@@ -532,24 +577,17 @@
   </div>
   <p class="contact-sub">Open to Flutter Developer roles, product work, remote opportunities, and interesting engineering problems.</p>
   <div class="contact-links">
+    <a href="assets/static/SatishVishwakarma__Resume.pdf" class="contact-link" download aria-label="Download resume PDF">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Resume
+    </a>
     <button type="button" class="contact-link copy-btn" data-copy="satish.vishwakarma.it@gmail.com" data-label="Email copied!" aria-label="Copy email address">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
       satish.vishwakarma.it@gmail.com
       <span class="copy-icon" aria-hidden="true">⎘</span>
     </button>
-    <button type="button" class="contact-link copy-btn" data-copy="+918889344744" data-label="Number copied!" aria-label="Copy phone number">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.08 6.08l1.27-.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      +91 88893 44744
-      <span class="copy-icon" aria-hidden="true">⎘</span>
-    </button>
-    <a href="https://linkedin.com/in/satish-vishwakarma" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="LinkedIn profile">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-      LinkedIn
-    </a>
-    <a href="https://github.com/satishvishwakarma24/" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="GitHub profile">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-      GitHub
-    </a>
+    <a href="https://linkedin.com/in/satish-vishwakarma" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="LinkedIn profile">LinkedIn</a>
+    <a href="https://github.com/satishvishwakarma24/" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="GitHub profile">GitHub</a>
   </div>
 </section>
 
@@ -560,8 +598,17 @@
     <img src="assets/icons/logo.svg" alt="" width="20" height="20" />
     © 2026 Satish Vishwakarma
   </span>
-  <span>Built with HTML, CSS &amp; JS · Hosted on GitHub Pages</span>
+  <span class="footer-links">
+    <a href="assets/static/SatishVishwakarma__Resume.pdf" download>Resume</a>
+    <a href="https://github.com/satishvishwakarma24/portfolio" target="_blank" rel="noopener noreferrer">Source</a>
+    <span>Updated Jun 2026</span>
+  </span>
 </footer>
+
+<div class="sticky-cta" aria-label="Quick actions">
+  <a href="assets/static/SatishVishwakarma__Resume.pdf" class="btn btn-primary" download>Resume</a>
+  <a href="#contact" class="btn btn-ghost">Contact</a>
+</div>
 
 <div class="copy-toast" id="toast" role="status" aria-live="polite"></div>
 

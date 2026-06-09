@@ -11,10 +11,12 @@ Personal portfolio website for a Flutter Developer showcasing experience, projec
 
 ## Features
 
-- Responsive dark-theme design with scroll reveal animations
+- Selected Work bento grid with real app screenshots
+- Case-study project cards and downloadable resume PDF
+- Animated stat counters, scroll progress bar, and sticky mobile CTA
+- Responsive dark-theme design with tablet breakpoint (1024px)
 - Mobile hamburger navigation with accessibility support
 - SEO meta tags, Open Graph previews, and JSON-LD structured data
-- Copy-to-clipboard contact buttons
 - Auto-deployed to GitHub Pages on every push to `main`
 
 ## Project structure
@@ -24,6 +26,8 @@ portfolio/
 ├── index.html              # Main page (content lives here)
 ├── assets/
 │   ├── images/             # Avatar, OG preview image
+│   ├── screenshots/        # App screenshots by project
+│   ├── static/             # Resume PDF
 │   └── icons/              # Logo, favicon, apple-touch-icon
 ├── css/
 │   ├── tokens.css          # Design tokens (colors, spacing)
