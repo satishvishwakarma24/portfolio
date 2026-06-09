@@ -11,8 +11,8 @@ Personal portfolio website for a Flutter Developer showcasing experience, projec
 
 ## Features
 
-- Selected Work bento grid with real app screenshots
-- Case-study project cards and downloadable resume PDF
+- Dedicated UI Work gallery (mobile and web screenshots)
+- Text-only project case-study cards and downloadable resume PDF
 - Animated stat counters, scroll progress bar, and sticky mobile CTA
 - Responsive dark-theme design with tablet breakpoint (1024px)
 - Mobile hamburger navigation with accessibility support

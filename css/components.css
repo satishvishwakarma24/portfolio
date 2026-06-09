@@ -806,130 +806,9 @@ button.contact-link.copied {
   color: var(--accent);
 }
 
-/* ── Selected Work (flagship bento) ─────────────────────────── */
-#selected-work {
-  padding-top: 80px;
-}
-
-.selected-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.work-card {
-  background: linear-gradient(145deg, #141414, #0f0f0f);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  overflow: hidden;
-  transition: border-color var(--duration-normal) var(--ease-out),
-    box-shadow var(--duration-normal) var(--ease-out),
-    transform var(--duration-normal) var(--ease-out);
-}
-
-.work-card:hover {
-  border-color: rgba(217, 255, 63, 0.4);
-  box-shadow: 0 12px 40px var(--card-glow);
-  transform: translateY(-4px);
-}
-
-.work-card--featured {
-  grid-row: span 2;
-}
-
-.work-card-media {
-  position: relative;
-  overflow: hidden;
-  background: #0a0a0a;
-  aspect-ratio: 16 / 10;
-}
-
-.work-card--featured .work-card-media {
-  aspect-ratio: auto;
-  height: 320px;
-}
-
-.work-card-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  transition: transform 0.5s var(--ease-out);
-}
-
-.work-card:hover .work-card-media img {
-  transform: scale(1.03);
-}
-
-.work-card-body {
-  padding: 24px;
-}
-
-.work-card-tag {
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent2);
-  margin-bottom: 8px;
-}
-
-.work-card-title {
-  font-family: 'Syne', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.work-card-hook {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.6;
-  margin-bottom: 16px;
-}
-
-.work-card-metrics {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.metric-pill {
-  font-size: 10px;
-  padding: 4px 10px;
-  border-radius: 20px;
-  background: rgba(217, 255, 63, 0.08);
-  border: 1px solid rgba(217, 255, 63, 0.2);
-  color: var(--accent);
-  letter-spacing: 0.04em;
-}
-
-.work-card-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 16px;
-}
-
-.chip {
-  font-size: 10px;
-  padding: 4px 10px;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  color: var(--muted);
-  background: #0d0d0d;
-}
-
-.section-cta {
-  margin-top: 32px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
 /* ── UI Work gallery ────────────────────────────────────────── */
 #ui-work {
+  padding-top: 80px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -1108,19 +987,6 @@ button.contact-link.copied {
   box-shadow: 0 8px 32px var(--card-glow);
 }
 
-.project-card-media {
-  height: 200px;
-  overflow: hidden;
-  background: #0a0a0a;
-}
-
-.project-card-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-}
-
 .project-card-body {
   padding: 24px;
 }
@@ -1238,10 +1104,6 @@ button.contact-link.copied {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .selected-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .ui-gallery--mobile {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   }
@@ -1303,10 +1165,6 @@ button.contact-link.copied {
   .hero-avatar {
     width: 120px;
     height: 120px;
-  }
-
-  .selected-grid {
-    grid-template-columns: 1fr;
   }
 
   .stat-strip {
