@@ -32,7 +32,9 @@
 
   <link rel="canonical" href="https://satishvishwakarma24.github.io/portfolio/" />
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+  <link rel="icon" href="assets/icons/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="assets/icons/favicon-16.png" type="image/png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" sizes="180x180" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Satish Vishwakarma — Flutter Developer" />
@@ -84,12 +86,6 @@
       <span class="nav-logo-text">SVK</span>
     </a>
 
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-    </button>
-
     <ul class="nav-links" id="nav-menu">
       <li><a href="#ui-work">UI</a></li>
       <li><a href="#about">About</a></li>
@@ -102,16 +98,23 @@
       </li>
     </ul>
 
-    <div class="nav-actions">
-      <div class="theme-switch" role="group" aria-label="Color theme">
-        <button type="button" class="theme-btn" data-theme-value="light" aria-pressed="false" aria-label="Light theme" title="Light theme">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        </button>
-        <button type="button" class="theme-btn" data-theme-value="dark" aria-pressed="false" aria-label="Dark theme" title="Dark theme">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
+    <div class="nav-controls">
+      <div class="nav-actions">
+        <div class="theme-switch" role="group" aria-label="Color theme">
+          <button type="button" class="theme-btn" data-theme-value="light" aria-pressed="false" aria-label="Light theme" title="Light theme">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          </button>
+          <button type="button" class="theme-btn" data-theme-value="dark" aria-pressed="false" aria-label="Dark theme" title="Dark theme">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </div>
+        <a href="assets/static/SatishVishwakarma__Resume.pdf" class="nav-resume nav-resume-desktop" download aria-label="Download resume PDF">Resume</a>
       </div>
-      <a href="assets/static/SatishVishwakarma__Resume.pdf" class="nav-resume nav-resume-desktop" download aria-label="Download resume PDF">Resume</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
     </div>
   </nav>
 </header>

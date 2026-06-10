@@ -21,6 +21,10 @@ body.nav-open {
   overflow: hidden;
 }
 
+body.nav-open::before {
+  z-index: 0;
+}
+
 body::before {
   content: '';
   position: fixed;
