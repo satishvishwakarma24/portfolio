@@ -1,0 +1,57 @@
+SATISH VISHWAKARMA
+Flutter Developer | Mobile Engineer (Android and iOS)
+Indore, India (Open to Remote) | +91 88893 44744 | satish.vishwakarma.it@gmail.com
+linkedin.com/in/satish-vishwakarma | github.com/satishvishwakarma24 | satishvishwakarma24.github.io/portfolio
+
+PROFESSIONAL SUMMARY
+Flutter Developer with 3+ years of experience building cross-platform applications for Android, iOS, and Web. Skilled in Flutter, Dart, Riverpod, GetX, Provider, Clean Architecture, REST APIs, Firebase, and enterprise SAP integrations. Play Store-published apps with experience in Agile/Scrum, widget testing, build flavors, and Play Store deployment. Promoted from Intern to Associate Software Engineer in 12 months at Softude.
+
+CORE SKILLS
+Languages: Dart, JavaScript, Java
+Mobile: Flutter (Android, iOS, Web), Platform Channels, Google Maps, GoRouter
+State Management: Riverpod, GetX, Provider
+Backend and APIs: RESTful APIs, Firebase, Dio, WebSocket, Third-party APIs
+Architecture: Clean Architecture, MVVM, MVC, Repository Pattern
+Testing: Unit Testing, Widget Testing, Integration Testing, Flutter DevTools
+DevOps and Deployment: Git, GitHub Actions, CI/CD, Build Flavors, Code Signing, Play Store, App Store
+
+WORK EXPERIENCE
+
+Freelance Flutter Developer | Apr 2026 -- Present
+Self-employed (Fiverr / Upwork) | Remote
+- Delivering cross-platform Flutter apps for international clients using Clean Architecture, Riverpod, GetX, Firebase, and REST APIs.
+- End-to-end delivery: requirements, UI/UX, widget/integration testing, Play Store deployment, and post-launch support.
+
+Associate Software Engineer (Intern to Associate) | Sep 2024 -- Mar 2026
+Softude | Indore, India
+- Promoted from Intern to Associate in 12 months; led Flutter delivery on Eicher SiteOne (500+ field technicians) across Android, iOS, and Web.
+- Built reusable component library (30+ widgets); integrated 15+ REST endpoints with Dio, GetX, and Provider.
+- Delivered sprint features across 3 enterprise projects; mentored 2 junior developers via code reviews and pair programming.
+- Managed Play Store releases with build flavors, code signing, Crashlytics; added widget tests for critical flows.
+
+Android and Flutter Developer Intern | Jan 2023 -- Jun 2023
+mBrainApps | Indore, India
+- Developed Flutter and Android apps with REST APIs, camera, GPS, push notifications, and local storage integrations.
+
+PROJECTS
+
+Eicher SiteOne -- Enterprise Mobile and Web App
+Flutter, Node.js, PostgreSQL, SAP
+- Cross-platform vehicle service app with 7-stage job card lifecycle, SAP DBM integration, and RBAC for 500+ field technicians.
+- Live: play.google.com/store/apps/details?id=com.eicher.siteone
+
+FileSecure -- Document Scanner and Secure Vault
+Flutter, AES-256, Biometric Auth
+- Encrypted vault and document scanner with biometric auth; 10,000+ Play Store downloads.
+- Live: play.google.com/store/apps/details?id=com.photoandvideoapps.fileSecurevault
+
+EDUCATION
+
+Master of Computer Applications (MCA) | 2024 -- Present
+Rajiv Gandhi Proudyogiki Vishwavidyalaya (RGPV), Bhopal, India
+
+Bachelor of Computer Applications (BCA) | 2021 -- 2024
+Devi Ahilya Vishwavidyalaya (DAVV), Indore, India | CGPA: 8.20 / 10
+
+Professional Training -- MERN Stack | May 2023 -- Jul 2024
+InfoBeans Foundation, Indore, India
