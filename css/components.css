@@ -114,11 +114,13 @@
   flex-shrink: 0;
 }
 
-.nav-resume-mobile {
+.nav-resume-mobile,
+.nav-contact-mobile {
   display: none;
 }
 
-.nav-resume-desktop {
+.nav-resume-desktop,
+.nav-contact-desktop {
   display: inline-flex;
   align-items: center;
 }
@@ -214,6 +216,28 @@
 }
 
 .nav-resume::after {
+  display: none;
+}
+
+.nav-contact {
+  color: var(--muted-strong) !important;
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: 'DM Mono', monospace;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.nav-contact:hover {
+  border-color: var(--accent);
+  color: var(--accent) !important;
+}
+
+.nav-contact::after {
   display: none;
 }
 
@@ -739,6 +763,9 @@ section {
 
 .edu-extra {
   margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .edu-card--row {
@@ -1296,12 +1323,20 @@ button.contact-link.copied {
     gap: 8px;
   }
 
-  .nav-resume-desktop {
+  .nav-resume-desktop,
+  .nav-contact-desktop {
     display: none;
   }
 
-  .nav-resume-mobile {
+  .nav-resume-mobile,
+  .nav-contact-mobile {
     display: list-item;
+  }
+
+  .nav-links .nav-contact {
+    display: block;
+    text-align: center;
+    margin-top: 8px;
   }
 
   .theme-switch {
