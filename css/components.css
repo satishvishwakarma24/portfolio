@@ -255,7 +255,7 @@
 
 .hero-inner {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 240px);
   align-items: center;
   gap: 64px;
   width: 100%;
@@ -324,8 +324,8 @@
 }
 
 .hero-avatar {
-  width: 180px;
-  height: 180px;
+  width: 196px;
+  height: 196px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--accent);
@@ -1095,6 +1095,36 @@ button.contact-link.copied {
     box-shadow var(--duration-normal) var(--ease-out);
 }
 
+.project-card-media {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+  background: var(--shot-bg);
+}
+
+.project-card-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.45s var(--ease-out);
+}
+
+.project-card:hover .project-card-media img {
+  transform: scale(1.025);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card-media img {
+    transition: none;
+  }
+
+  .project-card:hover .project-card-media img {
+    transform: none;
+  }
+}
+
 .project-card:hover {
   border-color: var(--accent-border);
   box-shadow: 0 8px 32px var(--card-glow);
@@ -1222,7 +1252,7 @@ button.contact-link.copied {
   }
 
   .projects-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1368,6 +1398,10 @@ button.contact-link.copied {
     height: 120px;
   }
 
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
   .stat-strip {
     grid-template-columns: 1fr 1fr;
     gap: 12px;
@@ -1433,3 +1467,4 @@ button.contact-link.copied {
     display: none;
   }
 }
+
