@@ -53,3 +53,20 @@ function highlightSection() {
 }
 window.addEventListener("scroll", highlightSection, { passive: true });
 highlightSection();
+
+const copyNumber = document.querySelector(".copy-number");
+const whatsappNumber = document.querySelector(".whatsapp-number");
+const copyStatus = document.querySelector(".copy-status");
+
+if (navigator.clipboard?.writeText) {
+  copyNumber.hidden = false;
+  copyNumber.addEventListener("click", async () => {
+    copyStatus.textContent = "";
+    try {
+      await navigator.clipboard.writeText(whatsappNumber.textContent.replace(/\s/g, ""));
+      copyStatus.textContent = "WhatsApp number copied.";
+    } catch {
+      copyStatus.textContent = "Couldn’t copy. You can select and copy the number above.";
+    }
+  });
+}
