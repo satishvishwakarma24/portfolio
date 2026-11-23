@@ -1,37 +1,22 @@
 :root {
   color-scheme: light dark;
-  --background: #edf0f8;
-  --surface: #fff;
-  --ink: #15192d;
-  --muted: #525b72;
-  --line: #d7ddea;
-  --accent: #ad351a;
-  --button: #a93017;
-  --button-text: #fff;
-  --tint: #fae7df;
-  --green: #15754b;
-  --shadow: 0 18px 55px -36px #30395d88;
-  --glow: #f7b9a1;
-  --glow-blue: #c7d5ff;
+  --background: light-dark(#edf0f8, #0b0e15);
+  --surface: light-dark(#fff, #151a25);
+  --ink: light-dark(#15192d, #eff1fa);
+  --muted: light-dark(#525b72, #b7bfd2);
+  --line: light-dark(#d7ddea, #2b3549);
+  --accent: light-dark(#ad351a, #ffa383);
+  --button: light-dark(#a93017, #ff926e);
+  --button-text: light-dark(#fff, #21100b);
+  --tint: light-dark(#fae7df, #38231f);
+  --green: light-dark(#15754b, #70dfad);
+  --shadow: light-dark(0 18px 55px -36px #30395d88, 0 18px 55px -34px #000c);
+  --glow: light-dark(#f7b9a1, #432a2f);
+  --glow-blue: light-dark(#c7d5ff, #222f54);
   --display: "Bricolage Grotesque", system-ui, sans-serif;
   --serif: "Instrument Serif", Georgia, serif;
   --body: Geist, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0b0e15;
-    --surface: #151a25;
-    --ink: #eff1fa;
-    --muted: #b7bfd2;
-    --line: #2b3549;
-    --accent: #ffa383;
-    --button: #ff926e;
-    --button-text: #21100b;
-    --tint: #38231f;
-    --green: #70dfad;
-    --shadow: 0 18px 55px -34px #000c;
-    --glow: #432a2f;
-    --glow-blue: #222f54;
-  }
-}
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }

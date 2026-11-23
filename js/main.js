@@ -54,19 +54,51 @@ function highlightSection() {
 window.addEventListener("scroll", highlightSection, { passive: true });
 highlightSection();
 
-const copyNumber = document.querySelector(".copy-number");
-const whatsappNumber = document.querySelector(".whatsapp-number");
+const themeToggle = document.querySelector(".theme-toggle");
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+const themeColor = document.querySelector('meta[name="theme-color"]');
+const root = document.documentElement;
+
+function updateThemeControl() {
+  const dark = root.dataset.theme ? root.dataset.theme === "dark" : systemTheme.matches;
+  const nextTheme = dark ? "Light" : "Dark";
+  themeToggle.textContent = nextTheme;
+  themeToggle.setAttribute("aria-label", `Switch to ${nextTheme.toLowerCase()} theme`);
+  themeColor.content = getComputedStyle(document.body).backgroundColor;
+}
+
+themeToggle.hidden = false;
+updateThemeControl();
+systemTheme.addEventListener("change", updateThemeControl);
+themeToggle.addEventListener("click", () => {
+  const dark = root.dataset.theme ? root.dataset.theme === "dark" : systemTheme.matches;
+  root.dataset.theme = dark ? "light" : "dark";
+  updateThemeControl();
+  try {
+    localStorage.setItem("portfolio-theme", root.dataset.theme);
+  } catch {
+    // The theme still works for this page when storage is unavailable.
+  }
+});
+
+const email = document.querySelector("#email-link").getAttribute("href").slice("mailto:".length);
+const whatsappNumber = document.querySelector(".whatsapp-number").textContent;
 const copyStatus = document.querySelector(".copy-status");
 
 if (navigator.clipboard?.writeText) {
-  copyNumber.hidden = false;
-  copyNumber.addEventListener("click", async () => {
-    copyStatus.textContent = "";
-    try {
-      await navigator.clipboard.writeText(whatsappNumber.textContent.replace(/\s/g, ""));
-      copyStatus.textContent = "WhatsApp number copied.";
-    } catch {
-      copyStatus.textContent = "Couldn’t copy. You can select and copy the number above.";
-    }
+  document.querySelectorAll(".copy-contact").forEach(button => {
+    button.hidden = false;
+    button.addEventListener("click", async () => {
+      const isEmail = button.dataset.copy === "email";
+      const value = isEmail ? email : whatsappNumber.replace(/\s/g, "");
+      const label = isEmail ? "Email address" : "WhatsApp number";
+      copyStatus.textContent = "";
+      try {
+        await navigator.clipboard.writeText(value);
+        copyStatus.textContent = `${label} copied.`;
+      } catch {
+        copyStatus.textContent = `Couldn’t copy. You can select and copy ${value}.`;
+      }
+    });
   });
 }

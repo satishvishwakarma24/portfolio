@@ -2,6 +2,8 @@
 .site-header { position: sticky; top: 0; z-index: 3; border-bottom: 1px solid var(--line); background: var(--background); }
 .nav { position: relative; min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .brand, .nav nav { display: flex; align-items: center; gap: .75rem; }
+.nav-actions { display: flex; align-items: center; gap: .5rem; }
+.theme-toggle { white-space: nowrap; }
 .brand { font-weight: 700; text-decoration: none; }
 .brand span { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 11px; background: var(--tint); color: var(--accent); font-family: var(--display); }
 .nav nav { gap: clamp(.65rem, 2vw, 1.6rem); }
@@ -64,9 +66,9 @@
 .company { font-weight: 700; margin-block: .4rem; }
 .skills-grid p, .about-grid article > p:last-child { margin-top: .65rem; }
 .contact { padding: clamp(1.4rem, 7vw, 4rem); background: radial-gradient(ellipse at 100% 0%, var(--glow-blue), transparent 70%), var(--surface); }
-.whatsapp { display: flex; align-items: stretch; gap: .35rem; flex-wrap: wrap; }
+.contact-method { display: flex; align-items: stretch; gap: .35rem; flex-wrap: wrap; }
 .whatsapp-number { white-space: nowrap; color: var(--muted); font-weight: 500; }
-.copy-number { min-width: 44px; padding-inline: .65rem; }
+.copy-contact { min-width: 44px; padding-inline: .65rem; }
 .copy-status { font-size: .9rem; }
 .copy-status:not(:empty) { margin-top: .65rem; }
 .footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem; padding-block: 2rem; color: var(--muted); font-size: .9rem; }
@@ -88,5 +90,8 @@
 }
 @media (max-width: 480px) {
   .wrap { width: calc(100% - 1.5rem); }
+  .nav { column-gap: .5rem; }
+  .brand { font-size: .85rem; gap: .4rem; }
+  .theme-toggle, .menu { padding-inline: .55rem; }
   .project-grid, .skills-grid { grid-template-columns: 1fr; }
 }
