@@ -55,15 +55,19 @@ window.addEventListener("scroll", highlightSection, { passive: true });
 highlightSection();
 
 const themeToggle = document.querySelector(".theme-toggle");
+const themeSun = themeToggle.querySelector(".theme-sun");
+const themeMoon = themeToggle.querySelector(".theme-moon");
 const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
 const themeColor = document.querySelector('meta[name="theme-color"]');
 const root = document.documentElement;
 
 function updateThemeControl() {
   const dark = root.dataset.theme ? root.dataset.theme === "dark" : systemTheme.matches;
-  const nextTheme = dark ? "Light" : "Dark";
-  themeToggle.textContent = nextTheme;
-  themeToggle.setAttribute("aria-label", `Switch to ${nextTheme.toLowerCase()} theme`);
+  const label = dark ? "Switch to light theme" : "Switch to dark theme";
+  themeSun.toggleAttribute("hidden", !dark);
+  themeMoon.toggleAttribute("hidden", dark);
+  themeToggle.setAttribute("aria-label", label);
+  themeToggle.title = label;
   themeColor.content = getComputedStyle(document.body).backgroundColor;
 }
 

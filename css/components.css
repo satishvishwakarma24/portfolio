@@ -3,7 +3,7 @@
 .nav { position: relative; min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .brand, .nav nav { display: flex; align-items: center; gap: .75rem; }
 .nav-actions { display: flex; align-items: center; gap: .5rem; }
-.theme-toggle { white-space: nowrap; }
+.theme-toggle { width: 44px; padding: 0; }
 .brand { font-weight: 700; text-decoration: none; }
 .brand span { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 11px; background: var(--tint); color: var(--accent); font-family: var(--display); }
 .nav nav { gap: clamp(.65rem, 2vw, 1.6rem); }
@@ -92,6 +92,6 @@
   .wrap { width: calc(100% - 1.5rem); }
   .nav { column-gap: .5rem; }
   .brand { font-size: .85rem; gap: .4rem; }
-  .theme-toggle, .menu { padding-inline: .55rem; }
+  .menu { padding-inline: .55rem; }
   .project-grid, .skills-grid { grid-template-columns: 1fr; }
 }
